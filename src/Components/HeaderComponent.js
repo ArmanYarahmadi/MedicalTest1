@@ -8,7 +8,7 @@ import {
   NavItem,
 } from "reactstrap";
 
-function Header(props) {
+const Header = (props) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
@@ -59,6 +59,6 @@ function Header(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Header;
