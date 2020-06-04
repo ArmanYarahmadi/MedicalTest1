@@ -35,21 +35,13 @@
   text-align: right;
 }
 
-.itemSelect {
+.selector {
   margin-top: 20px;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-}
-
-.radioboxContainer {
-  align-items: center;
-  margin-top: 20px;
+  margin-bottom: 50px;
   text-align: center;
 }
 
-.radiocheck {
+.radiobox {
+  margin-top: 20px;
   text-align: center;
-  columns: 3;
 }
