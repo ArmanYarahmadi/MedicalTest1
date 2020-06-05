@@ -19,14 +19,9 @@ class Gallery extends Component {
           parseInt(this.props.pro) === 1)
       ) {
         return (
-          <div className="col-12 col-sm-6 col-md-4 mb-5">
+          <div className="col-6  col-sm-4 mb-5">
             <Card>
-              <CardImg
-                top
-                width="100%"
-                src={doctor.image}
-                alt="Card image cap"
-              />
+              <CardImg top width="100%" src={doctor.image} alt={doctor.name} />
               <CardBody>
                 <CardTitle>{doctor.name}</CardTitle>
                 <hr />
