@@ -20,7 +20,7 @@ class Gallery extends Component {
       ) {
         return (
           <div className="col-6  col-sm-4 mb-5">
-            <Card>
+            <Card className="card">
               <CardImg top width="100%" src={doctor.image} alt={doctor.name} />
               <CardBody>
                 <CardTitle>{doctor.name}</CardTitle>
