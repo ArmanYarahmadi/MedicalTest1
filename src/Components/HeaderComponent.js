@@ -31,22 +31,22 @@ const Header = (props) => {
             <NavbarBrand href="/"></NavbarBrand>
             <Collapse isOpen={isNavOpen} navbar>
               <Nav navbar>
-                <NavItem>
+                <NavItem className="mr-4">
                   <a className="nav-link active" href="/">
                     خانه <span className="fa fa-home fa-lg"></span>
                   </a>
                 </NavItem>
-                <NavItem>
+                <NavItem className="mr-4">
                   <a className="nav-link" href="/">
                     درباره ما <span className="fa fa-info fa-lg"></span>
                   </a>
                 </NavItem>
-                <NavItem>
+                <NavItem className="mr-4">
                   <a className="nav-link" href="/">
                     فهرست <span className="fa fa-list fa-lg"></span>
                   </a>
                 </NavItem>
-                <NavItem>
+                <NavItem className="mr-4">
                   <a className="nav-link" href="/">
                     تماس با ما{" "}
                     <span className="fa fa-address-card fa-lg"></span>

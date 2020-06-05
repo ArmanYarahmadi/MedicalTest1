@@ -18,12 +18,15 @@ const FormComponent = (props) => {
           <div>
             <FormGroup className="selector">
               <Input
+                className="formInput col-12 col-sm-4"
                 type="select"
                 name="select"
                 id="exampleSelect"
                 onChange={(evt) => handleChange(evt.target.value)}
               >
-                <option value="1">همه</option>
+                <option value="1" className="options">
+                  همه
+                </option>
                 <option value="2">پزشک عمومی</option>
                 <option value="3">متخصص گوارش</option>
                 <option value="4">متخصص داخلی</option>

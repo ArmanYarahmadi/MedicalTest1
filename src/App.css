@@ -45,8 +45,9 @@ body {
   text-align: center;
 }
 
-.selectInp {
-  text-align: center;
+.formInput {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .radiobox {
