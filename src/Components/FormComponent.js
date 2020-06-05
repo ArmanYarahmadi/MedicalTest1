@@ -4,6 +4,11 @@ import Gallery from "./GalleryComponent";
 
 const FormComponent = (props) => {
   const [selected, setSelected] = useState(1);
+  const [pSelected, setPSelected] = useState(1);
+
+  const handleChange = (evt) => {
+    setPSelected(evt);
+  };
 
   return (
     <>
@@ -12,10 +17,16 @@ const FormComponent = (props) => {
           <h5>تخصص مورد نیاز را انتخاب کنید</h5>
           <div>
             <FormGroup className="selector">
-              <Input type="select" name="select" id="exampleSelect">
-                <option>پزشک عمومی</option>
-                <option>متخصص گوارش</option>
-                <option>متخصص داخلی</option>
+              <Input
+                type="select"
+                name="select"
+                id="exampleSelect"
+                onChange={(evt) => handleChange(evt.target.value)}
+              >
+                <option value="1">همه</option>
+                <option value="2">پزشک عمومی</option>
+                <option value="3">متخصص گوارش</option>
+                <option value="4">متخصص داخلی</option>
               </Input>
             </FormGroup>
           </div>
@@ -61,7 +72,7 @@ const FormComponent = (props) => {
       </div>
       <hr />
       <div className="container">
-        <Gallery gender={selected} />
+        <Gallery gender={selected} pro={pSelected} />
       </div>
     </>
   );

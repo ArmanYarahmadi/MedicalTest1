@@ -12,7 +12,12 @@ class Gallery extends Component {
 
   render() {
     const RenderImage = this.state.doctors.map((doctor) => {
-      if (doctor.gender == this.props.gender || this.props.gender === 1) {
+      if (
+        (parseInt(doctor.gender) === this.props.gender ||
+          this.props.gender === 1) &&
+        (parseInt(doctor.pro) === parseInt(this.props.pro) ||
+          parseInt(this.props.pro) === 1)
+      ) {
         return (
           <div className="col-12 col-sm-6 col-md-4 mb-5">
             <Card>
@@ -25,7 +30,7 @@ class Gallery extends Component {
               <CardBody>
                 <CardTitle>{doctor.name}</CardTitle>
                 <hr />
-                <CardSubtitle>{doctor.profetion}</CardSubtitle>
+                <CardSubtitle>{doctor.profession}</CardSubtitle>
               </CardBody>
             </Card>
           </div>
