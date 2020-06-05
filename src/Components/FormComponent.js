@@ -37,7 +37,7 @@ const FormComponent = (props) => {
                 <Button
                   outline
                   color="info"
-                  size="lg"
+                  size="sm"
                   onClick={() => setSelected(1)}
                   active={selected === 1}
                 >
@@ -48,7 +48,7 @@ const FormComponent = (props) => {
                 <Button
                   outline
                   color="info"
-                  size="lg"
+                  size="sm"
                   onClick={() => setSelected(2)}
                   active={selected === 2}
                 >
@@ -59,7 +59,7 @@ const FormComponent = (props) => {
                 <Button
                   outline
                   color="info"
-                  size="lg"
+                  size="sm"
                   onClick={() => setSelected(3)}
                   active={selected === 3}
                 >
