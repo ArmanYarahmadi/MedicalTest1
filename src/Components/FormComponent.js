@@ -9,6 +9,7 @@ const FormComponent = (props) => {
     value: "1",
     label: "همه",
   });
+  const [showMore, setShowMore] = useState(false);
 
   const options = [
     { value: "1", label: "همه" },
@@ -82,7 +83,17 @@ const FormComponent = (props) => {
       </div>
       <hr />
       <div className="container">
-        <Gallery gender={selectedGender} pro={selectedOption.value} />
+        <Button
+          className="btn btn-sm showMore mb-2"
+          onClick={() => setShowMore(!showMore)}
+        >
+          مشاهده بیشتر
+        </Button>
+        <Gallery
+          gender={selectedGender}
+          pro={selectedOption.value}
+          show={showMore}
+        />
       </div>
     </>
   );

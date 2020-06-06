@@ -32,8 +32,19 @@ class Gallery extends Component {
         );
       } else return <></>;
     });
-    return <div className="gallery row">{RenderImage}</div>;
+
+    if (this.props.show) {
+      return <div className="gallery row">{RenderImage}</div>;
+    } else {
+      return (
+        <div className="gallery row">
+          {RenderImage[0]}
+          {RenderImage[1]}
+          {RenderImage[2]}
+          {RenderImage[3]}
+        </div>
+      );
+    }
   }
 }
-
 export default Gallery;

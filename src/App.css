@@ -64,6 +64,10 @@ select {
   text-align: center;
 }
 
+.showMore {
+  background-color: #abb8c3;
+}
+
 .gallery {
   margin-bottom: 50px;
   text-align: center;
