@@ -9,17 +9,41 @@ body {
   margin: 0px auto;
 }
 
+.search-container {
+  text-align: center;
+}
+
+.header-search {
+  margin: auto;
+  color: black;
+}
+
 .navBarContainer {
-  margin-left: auto;
+  text-align: right;
+}
+
+.btn-install {
+  display: none;
+  margin: 5px;
+  width: 100%;
+}
+
+.m-body {
   text-align: right;
 }
 
 .footer {
+  width: 100%;
   background-color: #abb8c3;
   margin: 0px auto;
 }
 
 .footer-item {
+  text-align: center;
+  justify-content: center;
+}
+
+.footer-item-container {
   text-align: center;
 }
 
