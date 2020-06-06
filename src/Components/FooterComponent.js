@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(props) {
   return (
-    <div className="footer">
+    <div className="footer fixed-bottom">
       <div className="container">
         <div className="col-auto row">
           <div className="footer-item col-4">

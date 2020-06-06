@@ -14,7 +14,7 @@ const FormComponent = (props) => {
     <>
       <div className="container">
         <Form className="formComponent">
-          <h5>تخصص مورد نیاز را انتخاب کنید</h5>
+          <h5 className="form-title">تخصص مورد نیاز را انتخاب کنید</h5>
           <div>
             <FormGroup className="selector">
               <Input
@@ -33,7 +33,7 @@ const FormComponent = (props) => {
               </Input>
             </FormGroup>
           </div>
-          <h5>جنسیت پزشک مورد نظر را انتخاب کنید</h5>
+          <h5 className="form-title">جنسیت پزشک مورد نظر را انتخاب کنید</h5>
           <div className="">
             <ButtonGroup checkbox className="radiobox col-12">
               <div className="buttons col-4">

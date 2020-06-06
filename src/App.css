@@ -1,5 +1,7 @@
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+
+  font-size: 12px;
 }
 
 .header {
@@ -37,6 +39,10 @@ body {
   margin-bottom: 50px;
   padding: 10px;
   text-align: right;
+}
+
+.form-title {
+  font-size: 15px;
 }
 
 .selector {
