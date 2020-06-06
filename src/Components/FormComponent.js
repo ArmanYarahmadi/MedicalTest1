@@ -55,7 +55,7 @@ const FormComponent = (props) => {
                   onClick={() => setSelected(2)}
                   active={selected === 2}
                 >
-                  <div>زن</div>
+                  <div>خانم</div>
                 </Button>
               </div>
               <div className="buttons col-4">
@@ -66,7 +66,7 @@ const FormComponent = (props) => {
                   onClick={() => setSelected(3)}
                   active={selected === 3}
                 >
-                  <div>مرد</div>
+                  <div>آقا</div>
                 </Button>
               </div>
             </ButtonGroup>

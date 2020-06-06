@@ -19,7 +19,7 @@ class Gallery extends Component {
           parseInt(this.props.pro) === 1)
       ) {
         return (
-          <div className="col-6  col-sm-4 mb-5">
+          <div className="col-6  col-sm-4 mb-2">
             <Card className="card">
               <CardImg top width="100%" src={doctor.image} alt={doctor.name} />
               <CardBody>
@@ -32,7 +32,7 @@ class Gallery extends Component {
         );
       } else return <></>;
     });
-    return <div className="gallery container row">{RenderImage}</div>;
+    return <div className="gallery row">{RenderImage}</div>;
   }
 }
 

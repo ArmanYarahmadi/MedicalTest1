@@ -1,13 +1,12 @@
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-
+  font-family: "Vazir";
   font-size: 12px;
 }
 
 .header {
   background-color: #abb8c3;
   margin: 0px auto;
-  padding: 20px 0px 20px 0px;
 }
 
 .navBarContainer {
@@ -19,7 +18,6 @@ body {
 .footer {
   background-color: #abb8c3;
   margin: 0px auto;
-  padding: 20px 0px 20px 0px;
 }
 
 .footer-item {
@@ -36,18 +34,18 @@ body {
 
 .formComponent {
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   padding: 10px;
   text-align: right;
 }
 
 .form-title {
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .selector {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -57,13 +55,12 @@ body {
 }
 
 .radiobox {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
 }
 
 .gallery {
   margin-bottom: 50px;
-  padding: 10px;
   text-align: center;
 }
 

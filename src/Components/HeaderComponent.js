@@ -16,7 +16,7 @@ const Header = (props) => {
   };
 
   return (
-    <div className="header row">
+    <div className="header row fixed-top">
       <div className="mr-auto">
         <div className="footer-item col-4">
           <a className="footer-item-text nav-link" href="/">

@@ -20,7 +20,7 @@ function Footer(props) {
           <div className="footer-item col-4">
             <a className="footer-item-text nav-link" href="/">
               <span className="fa fa-comments fa-lg"></span>
-              <br /> گفتگو ها
+              <br /> گفتگوها
             </a>
           </div>
         </div>
