@@ -7,20 +7,23 @@ function Footer(props) {
         <div className="col-auto row">
           <div className="footer-item col-4">
             <a className="footer-item-text nav-link" href="/">
-              <span className="fa fa-users fa-lg"></span>
-              <br /> پشتیبانی
+              <span className="fa fa-users fa-lg" />
+              <br />
+              پشتیبانی
             </a>
           </div>
           <div className="footer-item col-4">
             <a className="footer-item-text nav-link" href="/">
-              <span className="fa fa-home fa-lg"></span>
-              <br /> خانه
+              <span className="fa fa-home fa-lg" />
+              <br />
+              خانه
             </a>
           </div>
           <div className="footer-item col-4">
             <a className="footer-item-text nav-link" href="/">
-              <span className="fa fa-comments fa-lg"></span>
-              <br /> گفتگوها
+              <span className="fa fa-comments fa-lg" />
+              <br />
+              گفتگوها
             </a>
           </div>
         </div>
