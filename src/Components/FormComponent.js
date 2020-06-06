@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Input, Button, ButtonGroup } from "reactstrap";
+import { Form, FormGroup, Button, ButtonGroup } from "reactstrap";
 import Gallery from "./GalleryComponent";
+import Select from "react-select";
 
 const FormComponent = (props) => {
-  const [selected, setSelected] = useState(1);
-  const [pSelected, setPSelected] = useState(1);
+  const [selectedGender, setSelectedGender] = useState(1);
+  const [selectedOption, setSelectedOption] = useState(1);
 
-  const handleChange = (evt) => {
-    setPSelected(evt);
+  const options = [
+    { value: "1", label: "همه" },
+    { value: "2", label: "پزشک عمومی" },
+    { value: "3", label: "متخصص گوارش" },
+    { value: "4", label: "متخصص داخلی" },
+  ];
+
+  const handleChange = (selectedOption) => {
+    setSelectedOption(selectedOption);
   };
 
   return (
@@ -17,20 +25,15 @@ const FormComponent = (props) => {
           <h5 className="form-title">تخصص مورد نیاز را انتخاب کنید</h5>
           <div>
             <FormGroup className="selector">
-              <Input
+              <Select
+                value={selectedOption}
                 className="formInput col-12 col-sm-4"
                 type="select"
                 name="select"
-                id="exampleSelect"
-                onChange={(evt) => handleChange(evt.target.value)}
-              >
-                <option value="1" className="options">
-                  همه
-                </option>
-                <option value="2">پزشک عمومی</option>
-                <option value="3">متخصص گوارش</option>
-                <option value="4">متخصص داخلی</option>
-              </Input>
+                id="proSelect"
+                onChange={handleChange}
+                options={options}
+              />
             </FormGroup>
           </div>
           <h5 className="form-title">جنسیت پزشک مورد نظر را انتخاب کنید</h5>
@@ -41,8 +44,8 @@ const FormComponent = (props) => {
                   outline
                   color="info"
                   size="sm"
-                  onClick={() => setSelected(1)}
-                  active={selected === 1}
+                  onClick={() => setSelectedGender(1)}
+                  active={selectedGender === 1}
                 >
                   <div>همه</div>
                 </Button>
@@ -52,8 +55,8 @@ const FormComponent = (props) => {
                   outline
                   color="info"
                   size="sm"
-                  onClick={() => setSelected(2)}
-                  active={selected === 2}
+                  onClick={() => setSelectedGender(2)}
+                  active={selectedGender === 2}
                 >
                   <div>خانم</div>
                 </Button>
@@ -63,8 +66,8 @@ const FormComponent = (props) => {
                   outline
                   color="info"
                   size="sm"
-                  onClick={() => setSelected(3)}
-                  active={selected === 3}
+                  onClick={() => setSelectedGender(3)}
+                  active={selectedGender === 3}
                 >
                   <div>آقا</div>
                 </Button>
@@ -75,7 +78,7 @@ const FormComponent = (props) => {
       </div>
       <hr />
       <div className="container">
-        <Gallery gender={selected} pro={pSelected} />
+        <Gallery gender={selectedGender} pro={selectedOption.value} />
       </div>
     </>
   );
