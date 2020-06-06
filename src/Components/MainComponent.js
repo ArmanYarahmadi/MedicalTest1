@@ -3,7 +3,6 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { Button, Modal } from "reactstrap";
 
 class Main extends Component {
   constructor(props) {

@@ -84,7 +84,7 @@ const FormComponent = (props) => {
       <hr />
       <div className="container">
         <Button
-          className="btn btn-sm showMore mb-2"
+          className="btn btn-sm showMore mb-2 out-line"
           onClick={() => setShowMore(!showMore)}
         >
           مشاهده بیشتر

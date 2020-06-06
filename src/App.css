@@ -22,12 +22,6 @@ body {
   text-align: right;
 }
 
-.btn-install {
-  display: none;
-  margin: 5px;
-  width: 100%;
-}
-
 .m-body {
   text-align: right;
 }
@@ -41,10 +35,6 @@ body {
 .footer-item {
   text-align: center;
   justify-content: center;
-}
-
-.footer-item-container {
-  text-align: center;
 }
 
 .footer-item-text {
