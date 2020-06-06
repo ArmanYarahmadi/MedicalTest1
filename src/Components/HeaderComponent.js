@@ -41,9 +41,8 @@ const Header = (props) => {
             </Collapse>
           </Navbar>
         </div>
-        <div className="col-3"></div>
         <div className="search-container mr-auto col-3">
-          <a className="header-search nav-link " href="/">
+          <a className="header-search nav-link" href="/">
             <span className="fa fa-search fa-2x"></span>
           </a>
         </div>

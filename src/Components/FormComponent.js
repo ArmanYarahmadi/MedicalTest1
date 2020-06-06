@@ -20,7 +20,11 @@ const FormComponent = (props) => {
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
-    console.log(selectedOption);
+  };
+
+  const RenderButton = () => {
+    if (showMore) return <div>مشاهده کمتر</div>;
+    else return <div>مشاهده بیشتر</div>;
   };
 
   return (
@@ -84,10 +88,15 @@ const FormComponent = (props) => {
       <hr />
       <div className="container">
         <Button
+          active={showMore}
+          id="showmore-btn"
+          color="warning"
           className="btn btn-sm showMore mb-2 out-line"
-          onClick={() => setShowMore(!showMore)}
+          onClick={() => {
+            setShowMore(!showMore);
+          }}
         >
-          مشاهده بیشتر
+          <RenderButton />
         </Button>
         <Gallery
           gender={selectedGender}
