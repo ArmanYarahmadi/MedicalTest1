@@ -5,7 +5,10 @@ import Select from "react-select";
 
 const FormComponent = (props) => {
   const [selectedGender, setSelectedGender] = useState(1);
-  const [selectedOption, setSelectedOption] = useState(1);
+  const [selectedOption, setSelectedOption] = useState({
+    value: "1",
+    label: "همه",
+  });
 
   const options = [
     { value: "1", label: "همه" },
@@ -16,6 +19,7 @@ const FormComponent = (props) => {
 
   const handleChange = (selectedOption) => {
     setSelectedOption(selectedOption);
+    console.log(selectedOption);
   };
 
   return (

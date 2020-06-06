@@ -49,6 +49,10 @@ body {
   text-align: center;
 }
 
+select {
+  text-align: center;
+}
+
 .formInput {
   text-align: center;
   margin-left: auto;
