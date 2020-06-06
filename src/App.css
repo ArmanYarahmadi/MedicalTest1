@@ -43,13 +43,11 @@ body {
   font-size: 14px;
 }
 
-.selector {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  text-align: center;
+.label {
+  font-family: "Vazir";
 }
 
-select {
+.options {
   text-align: center;
 }
 
