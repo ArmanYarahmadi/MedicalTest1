@@ -48,39 +48,45 @@ const FormComponent = (props) => {
           <h5 className="form-title">جنسیت پزشک مورد نظر را انتخاب کنید</h5>
           <div className="">
             <ButtonGroup checkbox className="radiobox col-12">
-              <div className="buttons col-4">
+              <div className="col-4">
                 <Button
+                  className="buttons"
                   outline
-                  size="large"
+                  size="sm"
                   onClick={() => setSelectedGender(1)}
                   active={selectedGender === 1}
                 >
                   <div>
-                    همه <span className="fa fa-user-md lg"></span>
+                    همه <br />
+                    <span className="fa fa-user-md lg"></span>
                   </div>
                 </Button>
               </div>
-              <div className="buttons col-4">
+              <div className="col-4">
                 <Button
+                  className="buttons"
                   outline
-                  size="large"
+                  size="sm"
                   onClick={() => setSelectedGender(2)}
                   active={selectedGender === 2}
                 >
                   <div>
-                    خانم <span className="fa fa-female lg"></span>
+                    خانم <br />
+                    <span className="fa fa-female lg"></span>
                   </div>
                 </Button>
               </div>
-              <div className="buttons col-4">
+              <div className="col-4">
                 <Button
+                  className="buttons"
                   outline
-                  size="large"
+                  size="sm"
                   onClick={() => setSelectedGender(3)}
                   active={selectedGender === 3}
                 >
                   <div>
-                    آقا <span className="fa fa-male lg"></span>
+                    آقا <br />
+                    <span className="fa fa-male lg"></span>
                   </div>
                 </Button>
               </div>
@@ -90,17 +96,14 @@ const FormComponent = (props) => {
       </div>
       <hr />
       <div className="container">
-        <Button
-          active={showMore}
-          id="showmore-btn"
-          color="link"
-          className="btn btn-sm showMore mb-2 out-line"
+        <span
+          className="btn btn-sm showmore mb-2 "
           onClick={() => {
             setShowMore(!showMore);
           }}
         >
           <RenderButton />
-        </Button>
+        </span>
         <Gallery
           gender={selectedGender}
           pro={selectedOption.value}
