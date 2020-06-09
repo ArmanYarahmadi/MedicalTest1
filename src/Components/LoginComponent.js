@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, CardText, CardBody, Button, Input } from "reactstrap";
+import { Card, CardText, CardBody, Button, Input, Form } from "reactstrap";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 
@@ -15,24 +15,26 @@ function Login(props) {
           className="userImg"
         />
         <CardBody className="login-body">
-          <CardText className="mt-3">
-            لطفا شماره همراه خود را وارد کنید
-          </CardText>
-          <div className="col-12 col-sm-8 phoneContainer" dir="ltr">
-            <PhoneInput
-              dir="ltr"
-              value={value}
-              onChange={setValue}
-              className="phone-number"
-            />
-          </div>
-          <CardText className="mt-4">لطفا رمز خود را وارد کنید</CardText>
-          <div>
-            <Input className="password col-6 col-sm-2" dir="ltr" />
-          </div>
-          <Button type="submit" role="submit" className="login-btn">
-            تایید
-          </Button>
+          <Form>
+            <CardText className="mt-3">
+              لطفا شماره همراه خود را وارد کنید
+            </CardText>
+            <div className="col-12 col-sm-8 phoneContainer" dir="ltr">
+              <PhoneInput
+                dir="ltr"
+                value={value}
+                onChange={setValue}
+                className="phone-number"
+              />
+            </div>
+            <CardText className="mt-4">لطفا رمز خود را وارد کنید</CardText>
+            <div>
+              <Input className="password col-6 col-sm-2" dir="ltr" />
+            </div>
+            <Button type="submit" role="submit" className="login-btn">
+              تایید
+            </Button>
+          </Form>
         </CardBody>
       </Card>
     </div>

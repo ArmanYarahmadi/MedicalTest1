@@ -15,7 +15,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link } from "react-router-dom";
 
-const drawerWidth = 240;
+const drawerWidth = 190;
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -138,16 +138,20 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {[
-            <Link className="menueparts" to="/">
+            <Link className="menueparts" to="/" onClick={() => setOpen(false)}>
               پروفایل کاربری
             </Link>,
-            <Link className="menueparts" to="/">
+            <Link className="menueparts" to="/" onClick={() => setOpen(false)}>
               قوانین و مقررات
             </Link>,
-            <Link className="menueparts" to="/">
+            <Link className="menueparts" to="/" onClick={() => setOpen(false)}>
               راهنمای استفاده
             </Link>,
-            <Link className="menueparts" to="/login">
+            <Link
+              className="menueparts"
+              to="/login"
+              onClick={() => setOpen(false)}
+            >
               ورود پزشکان
             </Link>,
           ].map((text, index) => (
