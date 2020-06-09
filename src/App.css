@@ -4,7 +4,7 @@ body {
 
 .footer {
   width: 100%;
-  background-color: #63caf8;
+  background-color: #4dc9f4;
   margin: 0px auto;
 }
 
@@ -51,7 +51,7 @@ body {
 .card {
   width: 100%;
   height: 100%;
-  border-color: #0541a4;
+  border-color: #094e66;
   border-width: 2px;
 }
 
@@ -64,7 +64,7 @@ body {
 }
 
 .buttons {
-  color: #0541a4;
+  color: #094e66;
 }
 
 .loginCard {
@@ -84,7 +84,7 @@ body {
 }
 
 .login-btn {
-  background-color: #63caf8;
+  background-color: #4dc9f4;
   margin-top: 25px;
   border: none;
   width: 75px;
@@ -121,5 +121,10 @@ body {
 }
 
 .showmore {
-  color: #0541a4;
+  color: #094e66;
+}
+
+.imgDrawer {
+  margin-left: auto;
+  margin-right: auto;
 }

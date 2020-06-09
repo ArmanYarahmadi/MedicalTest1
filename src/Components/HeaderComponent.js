@@ -7,7 +7,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -46,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     flexShrink: 0,
   },
   drawerPaper: {
-    backgroundColor: "#064f70",
+    backgroundColor: "#094e66",
 
     width: drawerWidth,
   },
@@ -135,7 +134,14 @@ export default function PersistentDrawerLeft() {
             <ChevronRightIcon />
           </IconButton>
         </div>
-        <Divider />
+        <div className="imgDrawer">
+          <img
+            src="../images/logo.png"
+            className="imgDrawer"
+            width="100px"
+            alt="Medycall"
+          />
+        </div>
         <List>
           {[
             <Link className="menueparts" to="/" onClick={() => setOpen(false)}>
