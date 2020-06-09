@@ -56,3 +56,46 @@ body {
 .buttons {
   color: #0541a4;
 }
+
+.loginCard {
+  margin-top: 100px;
+}
+
+.userImg {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 100px;
+  border-radius: 100px;
+}
+
+.login-body {
+  text-align: center;
+}
+
+.login-btn {
+  background-color: #63caf8;
+  margin-top: 25px;
+  border: none;
+  width: 75px;
+}
+
+.phone-number {
+  font-size: large;
+}
+
+.phoneContainer {
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #b2dcf0;
+  margin-top: 25px;
+  border-radius: 40px;
+}
+
+.password {
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 20px;
+  text-align: center;
+}

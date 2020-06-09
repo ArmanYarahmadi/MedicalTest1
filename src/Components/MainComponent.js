@@ -3,6 +3,7 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Login from "./LoginComponent";
 
 class Main extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={FormComponent} />
+          <Route path="/login" component={Login} />
           <Redirect to="/home" />
         </Switch>
         <Footer />
