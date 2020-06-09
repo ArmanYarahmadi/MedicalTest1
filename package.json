@@ -10,6 +10,8 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.0",
+    "firebase": "^7.15.0",
+    "firebase-tools": "^8.4.2",
     "gh-pages": "^3.0.0",
     "iransans-fontface": "^0.1.1",
     "jss-rtl": "^0.3.0",
