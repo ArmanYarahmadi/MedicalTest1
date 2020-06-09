@@ -78,6 +78,8 @@ body {
   margin-top: 25px;
   border: none;
   width: 75px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .phone-number {
@@ -102,4 +104,8 @@ body {
 
 .menueparts {
   color: white;
+}
+
+.loginModal {
+  margin-top: 95px;
 }
