@@ -22,7 +22,7 @@ body {
 }
 
 .formComponent {
-  margin-top: 60px;
+  margin-top: 75px;
   margin-bottom: 0px;
   padding: 10px;
   text-align: right;
@@ -58,7 +58,7 @@ body {
 }
 
 .loginCard {
-  margin-top: 70px;
+  margin-top: 75px;
 }
 
 .userImg {
@@ -85,9 +85,9 @@ body {
 }
 
 .phoneContainer {
-  padding: 15px;
   margin-left: auto;
   margin-right: auto;
+  padding: 15px;
   background-color: #b2dcf0;
   margin-top: 15px;
   border-radius: 40px;
