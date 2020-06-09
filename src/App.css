@@ -1,34 +1,10 @@
 body {
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  font-family: "Vazir";
-  font-size: 12px;
-}
-
-.header {
-  background-color: #abb8c3;
-  margin: 0px auto;
-}
-
-.search-container {
-  text-align: center;
-}
-
-.header-search {
-  margin: auto;
-  color: black;
-}
-
-.navBarContainer {
-  text-align: right;
-}
-
-.m-body {
-  text-align: right;
 }
 
 .footer {
   width: 100%;
-  background-color: #abb8c3;
+  background-color: #63caf8;
   margin: 0px auto;
 }
 
@@ -67,10 +43,6 @@ body {
   text-align: center;
 }
 
-.showMore {
-  background-color: #abb8c3;
-}
-
 .gallery {
   margin-bottom: 50px;
   text-align: center;
@@ -79,4 +51,8 @@ body {
 .card {
   width: 100%;
   height: 100%;
+}
+
+.buttons {
+  color: #0541a4;
 }

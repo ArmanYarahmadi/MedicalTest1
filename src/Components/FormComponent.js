@@ -51,34 +51,37 @@ const FormComponent = (props) => {
               <div className="buttons col-4">
                 <Button
                   outline
-                  color="info"
-                  size="sm"
+                  size="large"
                   onClick={() => setSelectedGender(1)}
                   active={selectedGender === 1}
                 >
-                  <div>همه</div>
+                  <div>
+                    همه <span className="fa fa-user-md lg"></span>
+                  </div>
                 </Button>
               </div>
               <div className="buttons col-4">
                 <Button
                   outline
-                  color="info"
-                  size="sm"
+                  size="large"
                   onClick={() => setSelectedGender(2)}
                   active={selectedGender === 2}
                 >
-                  <div>خانم</div>
+                  <div>
+                    خانم <span className="fa fa-female lg"></span>
+                  </div>
                 </Button>
               </div>
               <div className="buttons col-4">
                 <Button
                   outline
-                  color="info"
-                  size="sm"
+                  size="large"
                   onClick={() => setSelectedGender(3)}
                   active={selectedGender === 3}
                 >
-                  <div>آقا</div>
+                  <div>
+                    آقا <span className="fa fa-male lg"></span>
+                  </div>
                 </Button>
               </div>
             </ButtonGroup>
@@ -90,7 +93,7 @@ const FormComponent = (props) => {
         <Button
           active={showMore}
           id="showmore-btn"
-          color="warning"
+          color="link"
           className="btn btn-sm showMore mb-2 out-line"
           onClick={() => {
             setShowMore(!showMore);
