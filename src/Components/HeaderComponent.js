@@ -13,6 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -137,10 +138,18 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {[
-            "پروفایل کاربری",
-            "قوانین و مقررات",
-            "راهنمای استفاده",
-            "ورود پزشکان",
+            <Link className="menueparts" to="/">
+              پروفایل کاربری
+            </Link>,
+            <Link className="menueparts" to="/">
+              قوانین و مقررات
+            </Link>,
+            <Link className="menueparts" to="/">
+              راهنمای استفاده
+            </Link>,
+            <Link className="menueparts" to="/login">
+              ورود پزشکان
+            </Link>,
           ].map((text, index) => (
             <ListItem button key={text} className={classes.drawerMenue}>
               <ListItemText primary={text} className={classes.drawerText} />
