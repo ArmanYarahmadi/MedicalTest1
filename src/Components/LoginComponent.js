@@ -49,7 +49,9 @@ function Login(props) {
         </Card>
       </div>
       <Modal isOpen={modal} toggle={toggle} className="loginModal">
-        <ModalHeader toggle={toggle}>تایید شماره همراه</ModalHeader>
+        <ModalHeader toggle={toggle} dir="ltr">
+          تایید شماره همراه
+        </ModalHeader>
         <ModalBody dir="rtl" className="text-center">
           <Form>
             <Label>لطفا کد ارسال شده را وارد کنید</Label>
