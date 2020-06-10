@@ -26,6 +26,7 @@ const FormComponent = (props) => {
     if (showMore) return <div>مشاهده کمتر</div>;
     else return <div>مشاهده بیشتر</div>;
   };
+  console.log(props.doctors);
 
   return (
     <>
@@ -108,6 +109,7 @@ const FormComponent = (props) => {
           gender={selectedGender}
           pro={selectedOption.value}
           show={showMore}
+          doctors={props.doctors}
         />
       </div>
     </>
