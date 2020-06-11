@@ -1,13 +1,17 @@
 import * as ActionTypes from "./ActionTypes";
 import { baseUrl } from "../shared/baseUrl";
 
+export const alertLogin = (login) => {
+  alert("Current state is:" + JSON.stringify(login));
+};
+
 export const postLogin = (phoneNum, password) => (dispatch) => {
   const newLogin = {
     phoneNum: phoneNum,
     password: password,
   };
 
-  return fetch(baseUrl + "feedback", {
+  return fetch(baseUrl + "users", {
     method: "POST",
     body: JSON.stringify(newLogin),
     headers: {
@@ -32,7 +36,7 @@ export const postLogin = (phoneNum, password) => (dispatch) => {
       }
     )
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => alertLogin(response))
     .catch((error) => {
       console.log("post feedback", error.message);
       alert("Your feedback could not be posted\nError: " + error.message);

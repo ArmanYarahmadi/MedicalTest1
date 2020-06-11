@@ -4,7 +4,8 @@ import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import Login from "./LoginComponent";
-import { fetchDoctors } from "../redux/ActionCreators";
+import { fetchDoctors, postLogin } from "../redux/ActionCreators";
+import { actions } from "react-redux-form";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -14,6 +15,12 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  postLogin: (phoneNum, password) => dispatch(postLogin(phoneNum, password)),
+
+  resetLoginForm: () => {
+    dispatch(actions.reset("login"));
+  },
+
   fetchDoctors: () => {
     dispatch(fetchDoctors());
   },
@@ -36,7 +43,15 @@ class Main extends Component {
         <Header />
         <Switch>
           <Route path="/home" component={FormPage} />
-          <Route path="/login" component={Login} />
+          <Route
+            path="/login"
+            component={() => (
+              <Login
+                resetLoginForm={this.props.resetLoginForm}
+                postLogin={this.props.postLogin}
+              />
+            )}
+          />
           <Redirect to="/home" />
         </Switch>
         <Footer />
