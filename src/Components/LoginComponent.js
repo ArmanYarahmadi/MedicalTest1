@@ -31,7 +31,7 @@ function Login(props) {
                   model=".phoneNum"
                   id="phoneNum"
                   name="phoneNum"
-                  placeholder="شماره تلفن همراه"
+                  placeholder="شماره همراه"
                   className="form-control text-center mt-2"
                   validators={{
                     required,
@@ -39,6 +39,7 @@ function Login(props) {
                     minLength: minLength(11),
                     maxLength: maxLength(11),
                   }}
+                  persist
                 />
                 <Errors
                   className="text-danger"
@@ -54,7 +55,8 @@ function Login(props) {
               </Col>
               <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
                 <Label htmlFor="password">لطفا رمز خود را وارد نمایید</Label>
-                <Control.text
+                <Control
+                  type="password"
                   model=".password"
                   id="password"
                   name="password"
