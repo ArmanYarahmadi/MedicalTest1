@@ -26,7 +26,6 @@ const FormComponent = (props) => {
     if (showMore) return <div>مشاهده کمتر</div>;
     else return <div>مشاهده بیشتر</div>;
   };
-  console.log(props.doctors);
 
   return (
     <>

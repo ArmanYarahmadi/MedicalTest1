@@ -1,7 +1,7 @@
 import * as ActionTypes from "./ActionTypes";
 
 export const Doctors = (
-  state = { isLoading: true, errMess: null, doctos: [] },
+  state = { isLoading: true, errMess: null, doctors: [] },
   action
 ) => {
   switch (action.type) {
@@ -10,18 +10,18 @@ export const Doctors = (
         ...state,
         isLoading: false,
         errMess: null,
-        doctos: action.payload,
+        doctors: action.payload,
       };
 
     case ActionTypes.DISHES_LOADING:
-      return { ...state, isLoading: true, errMess: null, doctos: [] };
+      return { ...state, isLoading: true, errMess: null, doctors: [] };
 
     case ActionTypes.DISHES_FAILED:
       return {
         ...state,
         isLoading: false,
         errMess: action.payload,
-        doctos: [],
+        doctors: [],
       };
 
     default:

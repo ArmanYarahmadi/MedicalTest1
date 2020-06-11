@@ -4,7 +4,7 @@ import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import Login from "./LoginComponent";
-import { fetchDoctors } from "../redux/actionCreators";
+import { fetchDoctors } from "../redux/ActionCreators";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -20,15 +20,16 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  componentDidMount() {
+    this.props.fetchDoctors();
   }
 
   render() {
     const FormPage = () => {
       return <FormComponent doctors={this.props.doctors} />;
     };
+
+    console.log(this.props.doctors);
 
     return (
       <React.Fragment>
