@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import "css/iransans/iransans-fontface.css";
 
 const theme = createMuiTheme({
   direction: "rtl",
