@@ -5,13 +5,13 @@ export const alertLogin = (login) => {
   alert("Current state is:" + JSON.stringify(login));
 };
 
-export const postLogin = (phoneNum, password) => (dispatch) => {
+export const postLogin = (phoneNumber, password) => (dispatch) => {
   const newLogin = {
-    phoneNum: phoneNum,
+    phoneNumber: phoneNumber,
     password: password,
   };
 
-  return fetch(baseUrl + "users", {
+  return fetch(baseUrl + "api/doctors/login", {
     method: "POST",
     body: JSON.stringify(newLogin),
     headers: {

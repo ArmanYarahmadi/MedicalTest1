@@ -1,3 +1,4 @@
-export const InitialFeedback = {
-  phonenumber: "",
+export const InitialLogin = {
+  phoneNumber: "",
+  password: "",
 };
