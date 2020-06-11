@@ -22,7 +22,7 @@ function Login(props) {
             className="userImg"
           />
           <CardBody className="login-body">
-            <Form model="login" onSubmit={(values) => handleSubmit(values)}>
+            <Form model="Login" onSubmit={(values) => handleSubmit(values)}>
               <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
                 <Label htmlFor="phoneNum">
                   لطفا شماره همراه خود را وارد کنید
