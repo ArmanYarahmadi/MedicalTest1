@@ -1,15 +1,6 @@
 import React, { useState } from "react";
-import {
-  Card,
-  CardText,
-  CardBody,
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  Label,
-} from "reactstrap";
-import { Control, Form, Errors } from "react-redux-form";
+import { Card, CardText, CardBody, Button } from "reactstrap";
+import { Control, Form, LocalForm, Errors } from "react-redux-form";
 
 function Login(props) {
   const required = (val) => val && val.length;
@@ -22,7 +13,7 @@ function Login(props) {
   const toggle = () => setModal(!modal);
 
   const handleSubmit = (values) => {
-    alert("Current state is:" + JSON.stringify(values));
+    alert("Current State is: " + JSON.stringify(values));
   };
 
   return (
@@ -35,7 +26,10 @@ function Login(props) {
             className="userImg"
           />
           <CardBody className="login-body">
-            <Form model="login" onSubmit={(values) => handleSubmit(values)}>
+            <LocalForm
+              model="login"
+              onSubmit={(values) => handleSubmit(values)}
+            >
               <CardText>لطفا شماره همراه خود را وارد کنید</CardText>
               <div className="col-12 col-sm-8 phoneContainer" dir="ltr">
                 <Control.text
@@ -47,7 +41,7 @@ function Login(props) {
                   validators={{
                     required,
                     isNumber,
-                    minLength: minLength(3),
+                    minLength: minLength(11),
                     maxLength: maxLength(15),
                   }}
                 />
@@ -58,56 +52,47 @@ function Login(props) {
                   messages={{
                     required: "لطفا شماره تلفن خود را وارد کنید* ",
                     isNumber: "لطفا فقط از اعداد استفاده کنید* ",
-                    minLength: "حداقل دارای 3 عدد* ",
+                    minLength: "حداقل دارای 11 عدد* ",
                     maxLength: "حداکثر دارای 15 عدد* ",
                   }}
                 />
               </div>
-              <Button color="primary" className="login-btn" onClick={toggle}>
-                تایید
+              <div className="col-12 col-sm-8 phoneContainer" dir="ltr">
+                <CardText>لطفا رمز خود را وارد نمایید</CardText>
+                <Control.text
+                  model=".password"
+                  id="password"
+                  name="password"
+                  placeholder="رمز عبور"
+                  className="form-control text-center mt-2"
+                  validators={{
+                    required,
+                    isNumber,
+                    minLength: minLength(8),
+                    maxLength: maxLength(15),
+                  }}
+                />
+                <Errors
+                  className="text-danger"
+                  model=".password"
+                  show="touched"
+                  messages={{
+                    required: "لطفا شماره تلفن خود را وارد کنید* ",
+                    isNumber: "لطفا فقط از اعداد استفاده کنید* ",
+                    minLength: "حداقل دارای 8 عدد* ",
+                    maxLength: "حداکثر دارای 15 عدد* ",
+                  }}
+                />
+              </div>
+              <Button
+                type="submit"
+                color="primary"
+                className="login-btn"
+                onClick={toggle}
+              >
+                ورود
               </Button>
-
-              <Modal isOpen={modal} toggle={toggle} className="loginModal">
-                <ModalHeader toggle={toggle} dir="ltr">
-                  ورود رمز
-                </ModalHeader>
-                <ModalBody dir="rtl" className="text-center">
-                  <Label>لطفا رمز خود را وارد نمایید</Label>
-                  <Control.text
-                    model=".password"
-                    id="password"
-                    name="password"
-                    placeholder="رمز عبور"
-                    className="form-control text-center"
-                    validators={{
-                      required,
-                      isNumber,
-                      minLength: minLength(3),
-                      maxLength: maxLength(15),
-                    }}
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".password"
-                    show="touched"
-                    messages={{
-                      required: "لطفا شماره تلفن خود را وارد کنید* ",
-                      isNumber: "لطفا فقط از اعداد استفاده کنید* ",
-                      minLength: "حداقل دارای 3 عدد* ",
-                      maxLength: "حداکثر دارای 15 عدد* ",
-                    }}
-                  />
-                  <Button
-                    type="submit"
-                    color="primary"
-                    onClick={toggle}
-                    className="login-btn"
-                  >
-                    ورود
-                  </Button>
-                </ModalBody>
-              </Modal>
-            </Form>
+            </LocalForm>
           </CardBody>
         </Card>
       </div>
