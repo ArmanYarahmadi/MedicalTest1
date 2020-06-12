@@ -3,55 +3,45 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import Login from "./LoginComponent";
-import { fetchDoctors, postLogin } from "../redux/ActionCreators";
+import { postDoctorsLogin } from "../redux/ActionCreators";
 import { actions } from "react-redux-form";
 import { connect } from "react-redux";
+import DoctorsLogin from "./DoctorsLoginComponent";
 
 const mapStateToProps = (state) => {
-  return {
-    doctors: state.doctors,
-  };
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  postLogin: (phoneNum, password) => dispatch(postLogin(phoneNum, password)),
+  postDoctorsLogin: (phoneNumber, password) =>
+    dispatch(postDoctorsLogin(phoneNumber, password)),
 
-  resetLoginForm: () => {
-    dispatch(actions.reset("login"));
-  },
-
-  fetchDoctors: () => {
-    dispatch(fetchDoctors());
+  resetDoctorsLoginForm: () => {
+    dispatch(actions.reset("DoctorsLogin"));
   },
 });
 
 class Main extends Component {
-  componentDidMount() {
-    this.props.fetchDoctors();
-  }
-
   render() {
     const FormPage = () => {
-      return <FormComponent doctors={this.props.doctors} />;
+      return <FormComponent />;
     };
 
-    console.log(this.props.doctors);
+    const DoctorsLoginPage = () => {
+      return (
+        <DoctorsLogin
+          resetDoctorsLoginForm={this.props.resetDoctorsLoginForm}
+          postDoctorsLogin={this.props.postDoctorsLogin}
+        />
+      );
+    };
 
     return (
       <React.Fragment>
         <Header />
         <Switch>
           <Route path="/home" component={FormPage} />
-          <Route
-            path="/login"
-            component={() => (
-              <Login
-                resetLoginForm={this.props.resetLoginForm}
-                postLogin={this.props.postLogin}
-              />
-            )}
-          />
+          <Route path="/login" component={DoctorsLoginPage} />
           <Redirect to="/home" />
         </Switch>
         <Footer />

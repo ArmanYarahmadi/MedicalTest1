@@ -108,7 +108,6 @@ const FormComponent = (props) => {
           gender={selectedGender}
           pro={selectedOption.value}
           show={showMore}
-          doctors={props.doctors}
         />
       </div>
     </>

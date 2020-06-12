@@ -2,14 +2,14 @@ import React from "react";
 import { Card, CardBody, Button, Label, Col } from "reactstrap";
 import { Control, Form, Errors } from "react-redux-form";
 
-function Login(props) {
+function DoctorsLogin(props) {
   const required = (val) => val && val.length;
   const maxLength = (len) => (val) => !val || val.length <= len;
   const minLength = (len) => (val) => val && val.length >= len;
   const isNumber = (val) => !isNaN(Number(val));
 
   const handleSubmit = (values) => {
-    props.postLogin(values.phoneNum, values.password);
+    props.postDoctorsLogin(values.phoneNumber, values.password);
   };
 
   return (
@@ -22,15 +22,18 @@ function Login(props) {
             className="userImg"
           />
           <CardBody className="login-body">
-            <Form model="Login" onSubmit={(values) => handleSubmit(values)}>
+            <Form
+              model="DoctorsLogin"
+              onSubmit={(values) => handleSubmit(values)}
+            >
               <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
-                <Label htmlFor="phoneNum">
+                <Label htmlFor="phoneNumber">
                   لطفا شماره همراه خود را وارد کنید
                 </Label>
                 <Control.text
-                  model=".phoneNum"
-                  id="phoneNum"
-                  name="phoneNum"
+                  model=".phoneNumber"
+                  id="phoneNumber"
+                  name="phoneNumber"
                   placeholder="شماره همراه"
                   className="form-control text-center mt-2"
                   validators={{
@@ -43,7 +46,7 @@ function Login(props) {
                 />
                 <Errors
                   className="text-danger"
-                  model=".phoneNum"
+                  model=".phoneNumber"
                   show="touched"
                   messages={{
                     required: "لطفا شماره تلفن خود را وارد کنید* ",
@@ -76,8 +79,8 @@ function Login(props) {
                   messages={{
                     required: "لطفا شماره تلفن خود را وارد کنید* ",
                     isNumber: "لطفا فقط از اعداد استفاده کنید* ",
-                    minLength: "حداقل دارای 8 عدد* ",
-                    maxLength: "حداکثر دارای 15 عدد* ",
+                    minLength: "حداقل دارای 8 رقم* ",
+                    maxLength: "حداکثر دارای 256 رقم* ",
                   }}
                 />
               </Col>
@@ -92,4 +95,4 @@ function Login(props) {
   );
 }
 
-export default Login;
+export default DoctorsLogin;

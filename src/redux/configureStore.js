@@ -1,15 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { DOCTORS } from "../shared/doctors";
 import { createForms } from "react-redux-form";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import { InitialLogin } from "./users";
+import { InitialDoctorsLogin } from "./doctorsLogin";
 
 export const ConfigureStore = () => {
   const store = createStore(
     combineReducers({
-      doctors: DOCTORS,
-      ...createForms({ Login: InitialLogin }),
+      ...createForms({ DoctorsLogin: InitialDoctorsLogin }),
     }),
     applyMiddleware(thunk, logger)
   );

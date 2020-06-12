@@ -1,85 +1,20 @@
 import * as ActionTypes from "./ActionTypes";
 import { baseUrl } from "../shared/baseUrl";
+import axios from "axios";
 
 export const alertLogin = (login) => {
   alert("Current state is:" + JSON.stringify(login));
 };
 
-export const postLogin = (phoneNumber, password) => (dispatch) => {
-  const newLogin = {
-    phoneNumber: phoneNumber,
-    password: password,
-  };
-
-  return fetch(baseUrl + "api/doctors/login", {
-    method: "POST",
-    body: JSON.stringify(newLogin),
-    headers: {
-      "Content-Type": "application/json",
-    },
-    credentials: "same-origin",
-  })
+export const postDoctorsLogin = (phoneNumber, password) => (dispatch) => {
+  return axios
+    .post(`${baseUrl}api/doctors/login`, { phoneNumber, password })
     .then(
-      (response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          var error = new Error(
-            "Error " + response.status + ": " + response.statusText
-          );
-          error.response = response;
-          throw error;
-        }
+      (res) => {
+        console.log(res);
       },
-      (error) => {
-        throw error;
+      (err) => {
+        console.log(err);
       }
-    )
-    .then((response) => response.json())
-    .then((response) => alertLogin(response))
-    .catch((error) => {
-      console.log("post feedback", error.message);
-      alert("Your feedback could not be posted\nError: " + error.message);
-    });
+    );
 };
-
-//fetch doctors
-export const fetchDoctors = () => (dispatch) => {
-  dispatch(doctorsLoading(true));
-
-  return fetch(baseUrl + "doctors")
-    .then(
-      (response) => {
-        if (response.ok) {
-          return response;
-        } else {
-          var error = new Error(
-            "Error " + response.status + ": " + response.statusText
-          );
-          error.response = response;
-          throw error;
-        }
-      },
-      (error) => {
-        var errmess = new Error(error.message);
-        throw errmess;
-      }
-    )
-    .then((response) => response.json())
-    .then((doctors) => dispatch(addDoctors(doctors)))
-    .catch((error) => dispatch(doctorsFailed(error.message)));
-};
-
-export const doctorsLoading = () => ({
-  type: ActionTypes.DOCTORS_LOADING,
-});
-
-export const doctorsFailed = (errmess) => ({
-  type: ActionTypes.DOCTORS_FAILED,
-  payload: errmess,
-});
-
-export const addDoctors = (doctors) => ({
-  type: ActionTypes.ADD_DOCTORS,
-  payload: doctors,
-});

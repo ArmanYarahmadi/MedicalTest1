@@ -3,7 +3,7 @@
   "name": "Medycall",
   "icons": [
     {
-      "src": "/images/logo.png",
+      "src": "/images/logosplash.png",
       "type": "image/png",
       "sizes": "1024x1024"
     }
