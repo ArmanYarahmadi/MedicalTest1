@@ -7,8 +7,18 @@ export const alertLogin = (login) => {
 };
 
 export const postDoctorsLogin = (phoneNumber, password) => (dispatch) => {
+  const data = {
+    phoneNumber: phoneNumber,
+    password: password,
+  };
+
+  const headers = {
+    "Content-Type": "application/json",
+    "Access-Control-Allow-origin": "*",
+  };
+
   return axios
-    .post(`${baseUrl}api/doctors/login`, { phoneNumber, password })
+    .post(`${baseUrl}api/doctors/login`, data, { headers: headers })
     .then(
       (res) => {
         console.log(res);

@@ -17,8 +17,8 @@ body {
   color: white;
 }
 
-.menue {
-  text-align: right;
+.footer-item-text:hover {
+  color: #094e66;
 }
 
 .formComponent {
@@ -111,6 +111,11 @@ body {
 
 .menueparts {
   color: white;
+}
+
+.menueparts:hover {
+  text-decoration: none;
+  color: #4dc9f4;
 }
 
 .loginModal {

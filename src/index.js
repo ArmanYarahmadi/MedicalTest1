@@ -3,12 +3,13 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import "./fonts/IRANSansWeb/css/style.css";
 
 const theme = createMuiTheme({
   direction: "rtl",
   typography: {
-    fontFamily: ["Vazir"],
-    fontSize: "12",
+    fontFamily: ["IRAN"],
+    fontSize: 12,
   },
   palette: {
     primary: {

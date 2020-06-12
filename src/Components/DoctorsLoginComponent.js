@@ -10,6 +10,7 @@ function DoctorsLogin(props) {
 
   const handleSubmit = (values) => {
     props.postDoctorsLogin(values.phoneNumber, values.password);
+    props.resetDoctorsLoginForm();
   };
 
   return (
