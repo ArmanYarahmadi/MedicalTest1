@@ -50,7 +50,7 @@ function DoctorsLogin(props) {
                   model=".phoneNumber"
                   show="touched"
                   messages={{
-                    required: "لطفا شماره تلفن خود را وارد کنید* ",
+                    required: "لطفا رمز خود را وارد کنید* ",
                     isNumber: "لطفا فقط از اعداد استفاده کنید* ",
                     minLength: "اجازه ورود فقط 11 رقم را دارید* ",
                     maxLength: "اجازه ورود فقط 11 رقم را دارید* ",

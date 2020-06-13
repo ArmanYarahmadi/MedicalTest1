@@ -3,7 +3,7 @@ import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { postDoctorsLogin } from "../redux/ActionCreators";
+import { postDoctorsLogin } from "../redux/actionCreators";
 import { actions } from "react-redux-form";
 import { connect } from "react-redux";
 import DoctorsLogin from "./DoctorsLoginComponent";

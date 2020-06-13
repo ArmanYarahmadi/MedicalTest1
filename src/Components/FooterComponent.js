@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer(props) {
   return (
-    <div className="footer row fixed-bottom">
+    <div className="footerco row fixed-bottom">
       <div className="col-4 footer-item ">
         <a className="footer-item-text nav-link" href="/">
           <span className="fa fa-users fa-lg" />
