@@ -55,6 +55,16 @@ body {
   border-width: 2px;
 }
 
+.doctors-card {
+  color: #094e66;
+  text-decoration: none;
+}
+
+.doctors-card:hover {
+  color: #4dc9f4;
+  text-decoration: none;
+}
+
 .cardImgDoctor {
   margin-top: 10px;
   margin-left: auto;
@@ -129,4 +139,21 @@ body {
 .imgDrawer {
   margin-left: auto;
   margin-right: auto;
+}
+
+.biography {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.bio-profession {
+  font-size: small;
+  background-color: #4dc9f4;
+  padding: 1px;
+  border-radius: 40px;
+}
+
+.bio-image {
+  border-radius: 100px;
+  margin-top: 25px;
 }

@@ -7,6 +7,7 @@ import { postDoctorsLogin } from "../redux/actionCreators";
 import { actions } from "react-redux-form";
 import { connect } from "react-redux";
 import DoctorsLogin from "./DoctorsLoginComponent";
+import Biography from "./BiographyComponent";
 
 const mapStateToProps = (state) => {
   return {};
@@ -36,12 +37,17 @@ class Main extends Component {
       );
     };
 
+    const DoctorBioPage = ({ match }) => {
+      return <Biography doctorId={parseInt(match.params.doctorId, 10)} />;
+    };
+
     return (
       <React.Fragment>
         <Header />
         <Switch>
           <Route path="/home" component={FormPage} />
-          <Route path="/login" component={DoctorsLoginPage} />
+          <Route path="/doctorslogin" exact component={DoctorsLoginPage} />
+          <Route path="/doctors/:doctorId" component={DoctorBioPage} />
           <Redirect to="/home" />
         </Switch>
         <Footer />

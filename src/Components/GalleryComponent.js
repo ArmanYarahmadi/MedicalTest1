@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { DOCTORS } from "../shared/doctors";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Gallery extends Component {
   constructor(props) {
@@ -23,17 +24,19 @@ class Gallery extends Component {
       if (this.props.show) {
         return (
           <div className="col-6  col-sm-4 mb-2">
-            <Card className="card ">
-              <img
+            <Card className="card">
+              <CardImg
                 src={doctor.image}
                 alt={doctor.name}
                 className="cardImgDoctor"
               />
-              <CardBody>
-                <CardTitle>{doctor.name}</CardTitle>
-                <hr />
-                <CardSubtitle>{doctor.profession}</CardSubtitle>
-              </CardBody>
+              <Link className="doctors-card" to={`/doctors/${doctor.id}`}>
+                <CardBody>
+                  <CardTitle>{doctor.name}</CardTitle>
+                  <hr />
+                  <CardSubtitle>{doctor.profession}</CardSubtitle>
+                </CardBody>
+              </Link>
             </Card>
           </div>
         );
@@ -41,18 +44,20 @@ class Gallery extends Component {
         return (
           <div className="col-6  col-sm-4 mb-2">
             <Card className="card">
-              <CardImg
-                top
-                width="100%"
-                src={doctor.image}
-                alt={doctor.name}
-                className="cardImgDoctor"
-              />
-              <CardBody>
-                <CardTitle>{doctor.name}</CardTitle>
-                <hr />
-                <CardSubtitle>{doctor.profession}</CardSubtitle>
-              </CardBody>
+              <Link className="doctors-card" to={`/doctors/${doctor.id}`}>
+                <CardImg
+                  top
+                  width="100%"
+                  src={doctor.image}
+                  alt={doctor.name}
+                  className="cardImgDoctor"
+                />
+                <CardBody>
+                  <CardTitle>{doctor.name}</CardTitle>
+                  <hr />
+                  <CardSubtitle>{doctor.profession}</CardSubtitle>
+                </CardBody>
+              </Link>
             </Card>
           </div>
         );
