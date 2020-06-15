@@ -1,5 +1,5 @@
 import React from "react";
-import { DOCTORS } from "../../../shared/doctors";
+import { DOCTORS } from "../../../assets/shared/doctors";
 import ResponsivePlayer from "../../VideoPlayer/VideoPlayerComponent";
 import PatientHeader from "../../Headers/PatientHeader/PatientHeaderComponent";
 import "./styles.css";

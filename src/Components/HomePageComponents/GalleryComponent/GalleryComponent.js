@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { DOCTORS } from "../../../shared/doctors";
+import { DOCTORS } from "../../../assets/shared/doctors";
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";

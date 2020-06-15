@@ -75,7 +75,7 @@ function PatientsLogin(props) {
       <div className="container col-12 col-sm-6">
         <Card className="loginCard">
           <img
-            src={require("../../../images/user.png")}
+            src={require("../../../assets/images/user.png")}
             alt="user"
             className="userImg"
           />
