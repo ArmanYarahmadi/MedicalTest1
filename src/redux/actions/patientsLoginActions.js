@@ -12,10 +12,11 @@ export const postPatientsLogin = (phoneNumber) => (dispatch) => {
   return axios.post("/api/patients/createPatient/1", data);
 };
 
-export const postPatientsLoginPassword = (password, tempToken) => (
+export const postPatientsLoginPassword = (phoneNumber, tempToken, password) => (
   dispatch
 ) => {
   const data = {
+    phoneNumber: phoneNumber,
     token: tempToken,
     code: password,
   };

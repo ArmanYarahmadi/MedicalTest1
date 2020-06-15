@@ -5,9 +5,8 @@ import "./styles.css";
 
 const PatientReserve = (props) => {
   const handleReserve = () => {
-    if (localStorage.token) {
-      alert("ارسال لیست نوبت دهی");
-      return "/";
+    if (localStorage.authToken) {
+      return `/doctors/${props.doctorId}/reserve`;
     } else {
       return "/patientslogin";
     }
@@ -17,7 +16,7 @@ const PatientReserve = (props) => {
     <>
       <PatientHeader doctorId={props.doctorId} />
       <div className="container mt-5">
-        <h2 className="mt-5">قسمت شرح حال</h2>
+        <h2 className="mt-5">قسمت نوبت دهی</h2>
         <Link className="" to={handleReserve}>
           تست نوبت دهی
         </Link>

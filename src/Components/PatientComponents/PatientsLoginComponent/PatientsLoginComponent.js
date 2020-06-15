@@ -7,6 +7,7 @@ import "./styles.css";
 function PatientsLogin(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [tempToken, setTempToken] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const required = (val) => val && val.length;
   const maxLength = (len) => (val) => !val || val.length <= len;
@@ -18,18 +19,13 @@ function PatientsLogin(props) {
   };
 
   const handleSubmit = (values) => {
+    setPhoneNumber(values.phoneNumber);
     props
       .postPatientsLogin(values.phoneNumber)
       .then((res) => {
-        if (res.ok) {
-          alertLogin("بیمار وجود دارد");
-          localStorage.setItem("authToken", res.data.authToken);
-          console.log(res.data);
-        } else {
-          alertLogin("بیمار باید اضافه شود");
-          setTempToken(res.data.token);
-          setIsOpen(true);
-        }
+        alertLogin("اضافه کردن بیمار");
+        setTempToken(res.data.token);
+        setIsOpen(true);
       })
       .catch((err) => {
         alertLogin(err.response.data.message);
@@ -39,7 +35,7 @@ function PatientsLogin(props) {
 
   const handleSubmitPassword = (values) => {
     props
-      .postPatientsLoginPassword(values.password, tempToken)
+      .postPatientsLoginPassword(phoneNumber, tempToken, values.password)
       .then((res) => {
         alertLogin("شما با موفقیت اضافه شدید");
         localStorage.setItem("authToken", res.data.authToken);
@@ -122,7 +118,7 @@ function PatientsLogin(props) {
                       required,
                       isNumber,
                       minLength: minLength(4),
-                      maxLength: maxLength(4),
+                      maxLength: maxLength(5),
                     }}
                   />
                   <Errors
@@ -133,7 +129,7 @@ function PatientsLogin(props) {
                       required: "لطفا این بخش را پر کنید* ",
                       isNumber: "لطفا فقط از اعداد استفاده کنید* ",
                       minLength: "کد 4 رقمی است* ",
-                      maxLength: "کد 4 رقمی است* ",
+                      maxLength: "کد 5 رقمی است* ",
                     }}
                   />
                 </Col>

@@ -24,8 +24,8 @@ const mapDispatchToProps = (dispatch) => ({
 
   postPatientsLogin: (phoneNumber) => dispatch(postPatientsLogin(phoneNumber)),
 
-  postPatientsLoginPassword: (password, tempToken) =>
-    dispatch(postPatientsLoginPassword(password, tempToken)),
+  postPatientsLoginPassword: (phoneNumber, tempToken, password) =>
+    dispatch(postPatientsLoginPassword(phoneNumber, tempToken, password)),
 
   resetPatientsLoginPasswordForm: () => {
     dispatch(actions.reset("PatientsLoginPassword"));
