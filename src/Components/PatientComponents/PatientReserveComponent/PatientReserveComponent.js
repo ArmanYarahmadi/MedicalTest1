@@ -1,6 +1,5 @@
 import React from "react";
 import PatientHeader from "../../Headers/PatientHeader/PatientHeaderComponent";
-import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
 
