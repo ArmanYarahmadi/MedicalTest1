@@ -95,7 +95,7 @@ function PatientsLogin(props) {
                   model=".phoneNumber"
                   id="phoneNumber"
                   name="phoneNumber"
-                  placeholder="09123456789"
+                  placeholder="شماره همراه"
                   className="form-control text-center mt-2 phone-number"
                   validators={{
                     required,
@@ -106,7 +106,7 @@ function PatientsLogin(props) {
                   persist
                 />
                 <Errors
-                  className="alert-danger"
+                  className="text-danger"
                   model=".phoneNumber"
                   show="touched"
                   messages={{
@@ -146,7 +146,7 @@ function PatientsLogin(props) {
                     }}
                   />
                   <Errors
-                    className="alert-danger"
+                    className="text-danger"
                     model=".password"
                     show="touched"
                     messages={{

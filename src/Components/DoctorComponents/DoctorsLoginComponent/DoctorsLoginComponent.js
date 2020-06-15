@@ -78,7 +78,7 @@ function DoctorsLogin(props) {
                   persist
                 />
                 <Errors
-                  className="alert-danger"
+                  className="text-danger"
                   model=".phoneNumber"
                   show="touched"
                   messages={{
@@ -106,7 +106,7 @@ function DoctorsLogin(props) {
                   }}
                 />
                 <Errors
-                  className="alert-danger"
+                  className="text-danger"
                   model=".password"
                   show="touched"
                   messages={{
