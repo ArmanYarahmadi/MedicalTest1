@@ -1,16 +1,17 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { createForms } from "react-redux-form";
+import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import { InitialDoctorsLogin } from "./doctorsLogin";
+import rootReducer from "./reducers/reducers";
 
-export const ConfigureStore = () => {
-  const store = createStore(
-    combineReducers({
-      ...createForms({ DoctorsLogin: InitialDoctorsLogin }),
-    }),
-    applyMiddleware(thunk, logger)
-  );
+const initialState = {};
 
-  return store;
-};
+const Store = createStore(
+  rootReducer,
+  initialState,
+  compose(
+    applyMiddleware(thunk, logger),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+
+export default Store;

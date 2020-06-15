@@ -1,0 +1,17 @@
+.menueparts {
+  color: white;
+}
+
+.menueparts:hover {
+  text-decoration: none;
+  color: #4dc9f4;
+}
+
+.showmore {
+  color: #094e66;
+}
+
+.imgDrawer {
+  margin-left: auto;
+  margin-right: auto;
+}

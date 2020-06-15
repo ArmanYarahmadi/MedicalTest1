@@ -4,9 +4,10 @@ import "@fortawesome/fontawesome-free/js/all";
 import Main from "./Components/MainComponent";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { ConfigureStore } from "./redux/ConfigureStore";
+//import { ConfigureStore } from "./redux/configureStore";
 
-const store = ConfigureStore();
+//const store = ConfigureStore();
+import store from "./redux/configureStore";
 
 function App() {
   return (
