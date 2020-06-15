@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Card, CardBody, Button, Label, Col, Collapse } from "reactstrap";
+import {
+  Card,
+  CardBody,
+  Button,
+  Label,
+  Col,
+  Collapse,
+  Alert,
+} from "reactstrap";
 import { Control, Form, Errors } from "react-redux-form";
 import Header from "../../Headers/HomeHeader/HeaderComponent";
 import "./styles.css";
@@ -8,28 +16,34 @@ function PatientsLogin(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [tempToken, setTempToken] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [show, setShow] = useState(false);
+  const [alertDescription, setAlertDescription] = useState("");
+  const [alertColor, setAlertColor] = useState("");
 
   const required = (val) => val && val.length;
   const maxLength = (len) => (val) => !val || val.length <= len;
   const minLength = (len) => (val) => val && val.length >= len;
   const isNumber = (val) => !isNaN(Number(val));
 
-  const alertLogin = (login) => {
-    alert(JSON.stringify(login));
-  };
-
   const handleSubmit = (values) => {
     setPhoneNumber(values.phoneNumber);
     props
       .postPatientsLogin(values.phoneNumber)
       .then((res) => {
-        alertLogin("اضافه کردن بیمار");
+        setAlertDescription("تایید تلفن همراه");
+        setShow(true);
+        setAlertColor("success");
         setTempToken(res.data.token);
         setIsOpen(true);
       })
       .catch((err) => {
-        alertLogin(err.response.data.message);
+        setAlertDescription(
+          "شماره همراه وارد شده معتبر نمی باشد لطفا مجددا تلاش کنید"
+        );
+        setShow(true);
+        setAlertColor("danger");
         console.log(err);
+        props.resetPatientsLoginForm();
       });
   };
 
@@ -37,15 +51,22 @@ function PatientsLogin(props) {
     props
       .postPatientsLoginPassword(phoneNumber, tempToken, values.password)
       .then((res) => {
-        alertLogin("شما با موفقیت اضافه شدید");
         localStorage.setItem("authToken", res.data.authToken);
+        setAlertDescription("شما با موفقیت اضافه شدید");
+        setShow(true);
+        setAlertColor("success");
+        setIsOpen(false);
+        props.resetPatientsLoginPasswordForm();
+        props.resetPatientsLoginForm();
       })
       .catch((err) => {
-        alertLogin(err.response.data.message);
+        setAlertDescription(" کد وارد شده معتبر نمی باشد لطفا مجددا تلاش کنید");
+        setShow(true);
+        setAlertColor("danger");
         console.log(err);
+        setIsOpen(true);
+        props.resetPatientsLoginPasswordForm();
       });
-
-    props.resetPatientsLoginPasswordForm();
   };
 
   return (
@@ -64,6 +85,9 @@ function PatientsLogin(props) {
               onSubmit={(values) => handleSubmit(values)}
             >
               <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
+                <Collapse isOpen={show}>
+                  <Alert color={alertColor}>{alertDescription}</Alert>
+                </Collapse>
                 <Label htmlFor="phoneNumber">
                   لطفا شماره همراه خود را وارد کنید
                 </Label>
@@ -71,8 +95,8 @@ function PatientsLogin(props) {
                   model=".phoneNumber"
                   id="phoneNumber"
                   name="phoneNumber"
-                  placeholder="شماره همراه"
-                  className="form-control text-center mt-2"
+                  placeholder="09123456789"
+                  className="form-control text-center mt-2 phone-number"
                   validators={{
                     required,
                     isNumber,
@@ -82,14 +106,14 @@ function PatientsLogin(props) {
                   persist
                 />
                 <Errors
-                  className="text-danger"
+                  className="alert-danger"
                   model=".phoneNumber"
                   show="touched"
                   messages={{
-                    required: "لطفا این بخش را پر کنید* ",
-                    isNumber: "لطفا فقط از اعداد استفاده کنید* ",
-                    minLength: "اجازه ورود فقط 11 رقم را دارید* ",
-                    maxLength: "اجازه ورود فقط 11 رقم را دارید* ",
+                    required: "اجباری ",
+                    isNumber: "فقط اعداد ",
+                    minLength: "11 رقم ",
+                    maxLength: "11 رقم ",
                   }}
                 />
               </Col>
@@ -113,7 +137,7 @@ function PatientsLogin(props) {
                     id="password"
                     name="password"
                     placeholder="رمز عبور"
-                    className="form-control text-center mt-2"
+                    className="form-control text-center mt-2 password"
                     validators={{
                       required,
                       isNumber,
@@ -122,14 +146,14 @@ function PatientsLogin(props) {
                     }}
                   />
                   <Errors
-                    className="text-danger"
+                    className="alert-danger"
                     model=".password"
                     show="touched"
                     messages={{
-                      required: "لطفا این بخش را پر کنید* ",
-                      isNumber: "لطفا فقط از اعداد استفاده کنید* ",
-                      minLength: "کد 4 رقمی است* ",
-                      maxLength: "کد 5 رقمی است* ",
+                      required: "اجباری ",
+                      isNumber: "فقط اعداد ",
+                      minLength: "حداقل 4 رقم ",
+                      maxLength: "حداکثر 5 رقم ",
                     }}
                   />
                 </Col>
