@@ -3,6 +3,11 @@
   "name": "Medycall",
   "icons": [
     {
+      "src": "/images/logobg.png",
+      "type": "image/png",
+      "sizes": "250x250"
+    },
+    {
       "src": "/images/logo.png",
       "type": "image/png",
       "sizes": "1024x1024"
@@ -11,5 +16,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#094e66",
+  "scope": "/",
   "background_color": "#4dc9f4"
 }
