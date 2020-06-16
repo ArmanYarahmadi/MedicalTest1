@@ -1,27 +1,16 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Button, ButtonGroup } from "reactstrap";
+import { Form, FormGroup, Button, ButtonGroup, Input } from "reactstrap";
 import Gallery from "./GalleryComponent";
-import Select from "react-select";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 
 const FormComponent = (props) => {
   const [selectedGender, setSelectedGender] = useState(1);
-  const [selectedOption, setSelectedOption] = useState({
-    value: "1",
-    label: "همه",
-  });
+  const [selectedOption, setSelectedOption] = useState(1);
   const [showMore, setShowMore] = useState(false);
 
-  const options = [
-    { value: "1", label: "همه" },
-    { value: "2", label: "پزشک عمومی" },
-    { value: "3", label: "متخصص گوارش" },
-    { value: "4", label: "متخصص داخلی" },
-  ];
-
   const handleChange = (selectedOption) => {
-    setSelectedOption(selectedOption);
+    setSelectedOption(selectedOption.target.value);
   };
 
   const RenderButton = () => {
@@ -37,15 +26,19 @@ const FormComponent = (props) => {
           <h5 className="form-title">تخصص مورد نیاز را انتخاب کنید</h5>
           <div>
             <FormGroup className="selector">
-              <Select
+              <Input
                 value={selectedOption}
-                className="formInput col-12 col-sm-4"
+                className="formInput form-control col-12 col-sm-4"
                 type="select"
                 name="select"
                 id="proSelect"
                 onChange={handleChange}
-                options={options}
-              />
+              >
+                <option value="1">همه</option>
+                <option value="2">پزشک عمومی</option>
+                <option value="3">متخصص گوارش</option>
+                <option value="4">متخصص داخلی</option>
+              </Input>
             </FormGroup>
           </div>
           <h5 className="form-title">جنسیت پزشک مورد نظر را انتخاب کنید</h5>
@@ -98,11 +91,7 @@ const FormComponent = (props) => {
         >
           <RenderButton />
         </span>
-        <Gallery
-          gender={selectedGender}
-          pro={selectedOption.value}
-          show={showMore}
-        />
+        <Gallery gender={selectedGender} pro={selectedOption} show={showMore} />
       </div>
       <Footer />
     </>
