@@ -23,7 +23,7 @@ class Gallery extends Component {
     const RenderImage = doctors.map((doctor, i) => {
       if (this.props.show) {
         return (
-          <div key={doctor.id} className="col-6  col-sm-4 mb-2">
+          <div className="col-6  col-sm-4 mb-2">
             <Card className="card">
               <CardImg
                 src={doctor.image}
@@ -42,7 +42,7 @@ class Gallery extends Component {
         );
       } else if (i <= 3) {
         return (
-          <div key={doctor.id} className="col-6  col-sm-4 mb-2">
+          <div className="col-6  col-sm-4 mb-2">
             <Card className="card">
               <Link className="doctors-card" to={`/doctors/${doctor.id}/bio`}>
                 <CardImg
