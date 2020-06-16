@@ -9,8 +9,7 @@ import {
   Alert,
 } from "reactstrap";
 import { Control, Form, Errors } from "react-redux-form";
-import Header from "../../Headers/HomeHeader/HeaderComponent";
-import "./styles.css";
+import Header from "./HeaderComponent";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -98,7 +97,7 @@ class PatientsLogin extends Component {
         <div className="container col-12 col-sm-6">
           <Card className="loginCard">
             <img
-              src={require("../../../assets/images/user.png")}
+              src={require("../assets/images/user.png")}
               alt="user"
               className="userImg"
             />

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Button, ButtonGroup } from "reactstrap";
-import Gallery from "../GalleryComponent/GalleryComponent";
+import Gallery from "./GalleryComponent";
 import Select from "react-select";
-import Header from "../../Headers/HomeHeader/HeaderComponent";
-import Footer from "../../Footers/HomeFooter/FooterComponent";
-import "./styles.css";
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 
 const FormComponent = (props) => {
   const [selectedGender, setSelectedGender] = useState(1);
@@ -60,10 +59,7 @@ const FormComponent = (props) => {
                   onClick={() => setSelectedGender(1)}
                   active={selectedGender === 1}
                 >
-                  <div>
-                    همه <br />
-                    <span className="fa fa-user-md lg"></span>
-                  </div>
+                  <div>همه</div>
                 </Button>
               </div>
               <div className="col-4">
@@ -74,10 +70,7 @@ const FormComponent = (props) => {
                   onClick={() => setSelectedGender(2)}
                   active={selectedGender === 2}
                 >
-                  <div>
-                    خانم <br />
-                    <span className="fa fa-female lg"></span>
-                  </div>
+                  <div>خانم</div>
                 </Button>
               </div>
               <div className="col-4">
@@ -88,10 +81,7 @@ const FormComponent = (props) => {
                   onClick={() => setSelectedGender(3)}
                   active={selectedGender === 3}
                 >
-                  <div>
-                    آقا <br />
-                    <span className="fa fa-male lg"></span>
-                  </div>
+                  <div>آقا</div>
                 </Button>
               </div>
             </ButtonGroup>

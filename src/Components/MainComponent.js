@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FormComponent from "./HomePageComponents/FormComponent/FormComponent";
+import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import { postDoctorsLogin } from "../redux/actions/doctorsLoginActions";
 import {
@@ -8,11 +8,11 @@ import {
 } from "../redux/actions/patientsLoginActions";
 import { actions } from "react-redux-form";
 import { connect } from "react-redux";
-import DoctorsLogin from "./DoctorComponents/DoctorsLoginComponent/DoctorsLoginComponent";
-import Biography from "./PatientComponents/BiographyComponent/BiographyComponent";
-import PatientReserve from "./PatientComponents/PatientReserveComponent/PatientReserveComponent";
-import PatientState from "./PatientComponents/PatientStateComponent/PatientStateComponent";
-import PatientsLogin from "./PatientComponents/PatientsLoginComponent/PatientsLoginComponent";
+import DoctorsLogin from "./DoctorsLoginComponent";
+import Biography from "./BiographyComponent";
+import PatientReserve from "./PatientReserveComponent";
+import PatientState from "./PatientStateComponent";
+import PatientsLogin from "./PatientsLoginComponent";
 
 const mapStateToProps = (state) => {
   return {};

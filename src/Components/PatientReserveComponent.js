@@ -1,7 +1,6 @@
 import React from "react";
-import PatientHeader from "../../Headers/PatientHeader/PatientHeaderComponent";
+import PatientHeader from "./PatientHeaderComponent";
 import { Link } from "react-router-dom";
-import "./styles.css";
 
 const PatientReserve = (props) => {
   const handleReserve = () => {

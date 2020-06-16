@@ -1,8 +1,7 @@
 import React from "react";
-import { DOCTORS } from "../../../assets/shared/doctors";
-import ResponsivePlayer from "../../VideoPlayer/VideoPlayerComponent";
-import PatientHeader from "../../Headers/PatientHeader/PatientHeaderComponent";
-import "./styles.css";
+import { DOCTORS } from "../assets/shared/doctors";
+import ResponsivePlayer from "./VideoPlayerComponent";
+import PatientHeader from "./PatientHeaderComponent";
 
 const Biography = (props) => {
   const doctors = DOCTORS;

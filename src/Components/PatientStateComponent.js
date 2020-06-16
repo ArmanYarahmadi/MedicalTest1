@@ -1,5 +1,5 @@
 import React from "react";
-import PatientHeader from "../../Headers/PatientHeader/PatientHeaderComponent";
+import PatientHeader from "./PatientHeaderComponent";
 
 const PatientState = (props) => {
   return (
