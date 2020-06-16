@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="./images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#093e66" />
-    <meta name="description" content="Medical single page application" />
+    <meta name="description" content="Medycall single page application" />
     <link rel="apple-touch-icon" href="./images/logo.png" />
     <link rel="manifest" href="./manifest.json" />
 
@@ -15,11 +15,6 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script>
-      if (window.matchMedia("(display-mode: standalone)").matches) {
-        console.log("display-mode is standalone");
-      } else {
-        console.log("not installed");
-      }
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
