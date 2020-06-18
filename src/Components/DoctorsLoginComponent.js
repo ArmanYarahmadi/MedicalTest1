@@ -77,7 +77,9 @@ class DoctorsLogin extends Component {
                   <Label htmlFor="phoneNumber">
                     لطفا شماره همراه خود را وارد کنید
                   </Label>
-                  <Control.text
+                  <Control
+                    type="tel"
+                    inputMode="tel"
                     model=".phoneNumber"
                     id="phoneNumber"
                     name="phoneNumber"
@@ -106,7 +108,7 @@ class DoctorsLogin extends Component {
                 <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
                   <Label htmlFor="password">لطفا رمز خود را وارد نمایید</Label>
                   <Control
-                    type="password"
+                    inputMode="numeric"
                     model=".password"
                     id="password "
                     name="password"
