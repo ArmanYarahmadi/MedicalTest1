@@ -1,10 +1,18 @@
 import { combineReducers } from "redux";
-import { InitialPatientsLogin } from "./patientsLogin";
-import { InitialPatientsLoginPassword } from "./PatientsLoginPassword";
-import { InitialDoctorsLogin } from "./doctorsLogin";
+import { Patient } from "./patient";
+import {
+  InitialPatientsLogin,
+  InitialDoctorsLogin,
+  InitialPatientsLoginPassword,
+} from "./forms";
 import { createForms } from "react-redux-form";
+import { Doctor } from "./doctor";
+import { Profile } from "./profile";
 
 export default combineReducers({
+  patient: Patient,
+  doctor: Doctor,
+  profile: Profile,
   ...createForms({
     DoctorsLogin: InitialDoctorsLogin,
     PatientsLogin: InitialPatientsLogin,

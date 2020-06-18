@@ -31,7 +31,8 @@ class DoctorsLogin extends Component {
     this.props
       .postDoctorsLogin(values.phoneNumber, values.password)
       .then((res) => {
-        console.log(res);
+        this.props.addDoctor(res.data.doctor);
+        this.props.addprofile(res.data.profile);
         this.setState({
           show: true,
           alertColor: "success",

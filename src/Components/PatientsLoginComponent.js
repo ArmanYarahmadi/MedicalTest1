@@ -67,16 +67,7 @@ class PatientsLogin extends Component {
       )
       .then((res) => {
         localStorage.setItem("authToken", res.data.authToken);
-        console.log(res.data);
-        this.setState({
-          isOpen: false,
-          show: true,
-          alertDescription: "شما با موفقیت اضافه شدید",
-          alertColor: "success",
-        });
-
-        this.props.resetPatientsLoginPasswordForm();
-        this.props.resetPatientsLoginForm();
+        this.props.addPatient(res.data.patient);
       })
       .catch((err) => {
         this.setState({

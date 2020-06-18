@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import FormComponent from "./FormComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { postDoctorsLogin } from "../redux/actions/doctorsLoginActions";
+import {
+  postDoctorsLogin,
+  addDoctor,
+  addProfile,
+} from "../redux/actions/doctorsLoginActions";
 import {
   postPatientsLogin,
   postPatientsLoginPassword,
+  addPatient,
 } from "../redux/actions/patientsLoginActions";
 import { actions } from "react-redux-form";
 import { connect } from "react-redux";
@@ -15,7 +20,9 @@ import PatientState from "./PatientStateComponent";
 import PatientsLogin from "./PatientsLoginComponent";
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    patient: state.patient,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -26,6 +33,10 @@ const mapDispatchToProps = (dispatch) => ({
 
   postPatientsLoginPassword: (phoneNumber, tempToken, password) =>
     dispatch(postPatientsLoginPassword(phoneNumber, tempToken, password)),
+
+  addPatient: (patient) => dispatch(addPatient(patient)),
+  addDoctor: (doctor) => dispatch(addDoctor(doctor)),
+  addProfile: (profile) => dispatch(addProfile(profile)),
 
   resetPatientsLoginPasswordForm: () => {
     dispatch(actions.reset("PatientsLoginPassword"));
@@ -49,6 +60,8 @@ class Main extends Component {
     const DoctorsLoginPage = () => {
       return (
         <DoctorsLogin
+          addProfile={this.props.addProfile}
+          addDoctor={this.props.addDoctor}
           resetDoctorsLoginForm={this.props.resetDoctorsLoginForm}
           postDoctorsLogin={this.props.postDoctorsLogin}
         />
@@ -58,6 +71,7 @@ class Main extends Component {
     const PatientsLoginPage = () => {
       return (
         <PatientsLogin
+          addPatient={this.props.addPatient}
           resetPatientsLoginPasswordForm={
             this.props.resetPatientsLoginPasswordForm
           }
