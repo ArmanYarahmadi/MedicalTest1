@@ -107,6 +107,7 @@ class PatientsLogin extends Component {
                     لطفا شماره همراه خود را وارد کنید
                   </Label>
                   <Control.text
+                    type="number"
                     model=".phoneNumber"
                     id="phoneNumber"
                     name="phoneNumber"
@@ -147,7 +148,7 @@ class PatientsLogin extends Component {
                   </Label>
                   <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
                     <Control
-                      type="password"
+                      type="number"
                       model=".password"
                       id="password"
                       name="password"

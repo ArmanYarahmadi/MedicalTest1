@@ -6,6 +6,11 @@ body {
   font-size: 12px;
 }
 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 /*Home header*/
 .menueparts {
   color: white;
