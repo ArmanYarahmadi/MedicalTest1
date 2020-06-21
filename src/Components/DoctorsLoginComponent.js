@@ -7,8 +7,9 @@ import {
   Col,
   Alert,
   Collapse,
+  Form,
 } from "reactstrap";
-import { Control, Form, Errors } from "react-redux-form";
+import Cleave from "cleave.js/react";
 import Header from "./HeaderComponent";
 
 const required = (val) => val && val.length;
@@ -20,16 +21,33 @@ class DoctorsLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      phoneNumber: "",
+      phoneNumberValue: "",
+      password: "",
+      passwordValue: "",
       show: false,
       alertDescription: "",
       alertColor: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
   }
 
-  handleSubmit = (values) => {
+  onChangePhone = (event) => {
+    this.setState({ phoneNumber: event.target.value });
+    this.setState({ phoneNumberValue: event.target.rawValue });
+    console.log(this.state.phoneNumber);
+  };
+
+  onChangePassword = (event) => {
+    this.setState({ password: event.target.value });
+    this.setState({ passwordValue: event.target.rawValue });
+  };
+
+  handleSubmit = (event) => {
     this.props
-      .postDoctorsLogin(values.phoneNumber, values.password)
+      .postDoctorsLogin(this.state.phoneNumberValue, this.state.passwordValue)
       .then((res) => {
         this.props.addDoctor(res.data.doctor);
         this.props.addprofile(res.data.profile);
@@ -49,7 +67,13 @@ class DoctorsLogin extends Component {
 
         console.log(err);
       });
-    this.props.resetDoctorsLoginForm();
+    this.setState({
+      phoneNumber: "",
+      phoneNumberValue: "",
+      password: "",
+      passwordValue: "",
+    });
+    event.preventDefault();
   };
 
   render() {
@@ -64,72 +88,37 @@ class DoctorsLogin extends Component {
               className="userImg"
             />
             <CardBody className="login-body">
-              <Form
-                model="DoctorsLogin"
-                onSubmit={(values) => this.handleSubmit(values)}
-              >
+              <Form id="DoctorsLogin" onSubmit={this.handleSubmit}>
                 <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
                   <Collapse isOpen={this.state.show}>
                     <Alert color={this.state.alertColor}>
                       {this.state.alertDescription}
                     </Alert>
                   </Collapse>
-                  <Label htmlFor="phoneNumber">
+                  <Label for="phoneNumber">
                     لطفا شماره همراه خود را وارد کنید
                   </Label>
-                  <Control
-                    type="number"
-                    model=".phoneNumber"
+                  <Cleave
                     id="phoneNumber"
                     name="phoneNumber"
-                    placeholder="شماره همراه"
+                    value={this.state.phoneNumber}
+                    options={{
+                      prefix: "09",
+                      delimiter: " ",
+                      blocks: [4, 3, 4],
+                    }}
+                    onChange={this.onChangePhone}
                     className="form-control text-center mt-2 phone-number"
-                    validators={{
-                      required,
-                      isNumber,
-                      minLength: minLength(11),
-                      maxLength: maxLength(11),
-                    }}
-                    persist
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".phoneNumber"
-                    show="touched"
-                    messages={{
-                      required: "اجباری ",
-                      isNumber: "فقط اعداد ",
-                      minLength: "11 رقم ",
-                      maxLength: "11 رقم ",
-                    }}
                   />
                 </Col>
                 <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
-                  <Label htmlFor="password">لطفا رمز خود را وارد نمایید</Label>
-                  <Control
-                    type="number"
-                    model=".password"
-                    id="password "
+                  <Label for="password">لطفا رمز خود را وارد نمایید</Label>
+                  <Cleave
+                    id="password"
                     name="password"
-                    placeholder="رمز عبور"
-                    className="form-control text-center mt-2 password"
-                    validators={{
-                      required,
-                      isNumber,
-                      minLength: minLength(8),
-                      maxLength: maxLength(256),
-                    }}
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".password"
-                    show="touched"
-                    messages={{
-                      required: "اجباری ",
-                      isNumber: "فقط اعداد ",
-                      minLength: "حداقل 8 رقم ",
-                      maxLength: "حداکثر 256 رقم",
-                    }}
+                    value={this.state.password}
+                    onChange={this.onChangePassword}
+                    className="form-control text-center mt-2 phone-number"
                   />
                 </Col>
                 <Button type="submit" color="primary" className="login-btn">

@@ -7,9 +7,10 @@ import {
   Col,
   Collapse,
   Alert,
+  Form,
 } from "reactstrap";
-import { Control, Form, Errors } from "react-redux-form";
 import Header from "./HeaderComponent";
+import Cleave from "cleave.js/react";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -24,19 +25,32 @@ class PatientsLogin extends Component {
       show: false,
       tempToken: "",
       phoneNumber: "",
+      phoneNumberValue: "",
+      password: "",
+      passwordValue: "",
       alertDescription: "",
       alertColor: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitPassword = this.handleSubmitPassword.bind(this);
+    this.onChangePhone = this.onChangePhone.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
   }
 
-  handleSubmit = (values) => {
-    this.setState({
-      phoneNumber: values.phoneNumber,
-    });
+  onChangePhone = (event) => {
+    this.setState({ phoneNumber: event.target.value });
+    this.setState({ phoneNumberValue: event.target.rawValue });
+    console.log(this.state.phoneNumber);
+  };
+
+  onChangePassword = (event) => {
+    this.setState({ password: event.target.value });
+    this.setState({ passwordValue: event.target.rawValue });
+  };
+
+  handleSubmit = (event) => {
     this.props
-      .postPatientsLogin(values.phoneNumber)
+      .postPatientsLogin(this.state.phoneNumberValue)
       .then((res) => {
         this.setState({
           isOpen: true,
@@ -54,16 +68,20 @@ class PatientsLogin extends Component {
           alertColor: "danger",
         });
 
-        this.props.resetPatientsLoginForm();
+        this.setState({
+          phoneNumber: "",
+          phoneNumberValue: "",
+        });
       });
+    event.preventDefault();
   };
 
-  handleSubmitPassword = (values) => {
+  handleSubmitPassword = (event) => {
     this.props
       .postPatientsLoginPassword(
-        this.state.phoneNumber,
+        this.state.phoneNumberValue,
         this.state.tempToken,
-        values.password
+        this.state.passwordValue
       )
       .then((res) => {
         localStorage.setItem("authToken", res.data.authToken);
@@ -77,8 +95,12 @@ class PatientsLogin extends Component {
         });
 
         console.log(err);
-        this.props.resetPatientsLoginPasswordForm();
+        this.setState({
+          password: "",
+          passwordValue: "",
+        });
       });
+    event.preventDefault();
   };
 
   render() {
@@ -93,44 +115,27 @@ class PatientsLogin extends Component {
               className="userImg"
             />
             <CardBody className="login-body">
-              <Form
-                model="PatientsLogin"
-                onSubmit={(values) => this.handleSubmit(values)}
-              >
+              <Form id="PatientsLogin" onSubmit={this.handleSubmit}>
                 <Col className="col-12 col-sm-8 phoneContainer" dir="ltr">
                   <Collapse isOpen={this.state.show}>
                     <Alert color={this.state.alertColor}>
                       {this.state.alertDescription}
                     </Alert>
                   </Collapse>
-                  <Label htmlFor="phoneNumber">
+                  <Label for="phoneNumber">
                     لطفا شماره همراه خود را وارد کنید
                   </Label>
-                  <Control.text
-                    type="number"
-                    model=".phoneNumber"
+                  <Cleave
                     id="phoneNumber"
                     name="phoneNumber"
-                    placeholder="شماره همراه"
+                    value={this.state.phoneNumber}
+                    options={{
+                      prefix: "09",
+                      delimiter: " ",
+                      blocks: [4, 3, 4],
+                    }}
+                    onChange={this.onChangePhone}
                     className="form-control text-center mt-2 phone-number"
-                    validators={{
-                      required,
-                      isNumber,
-                      minLength: minLength(11),
-                      maxLength: maxLength(11),
-                    }}
-                    persist
-                  />
-                  <Errors
-                    className="text-danger"
-                    model=".phoneNumber"
-                    show="touched"
-                    messages={{
-                      required: "اجباری ",
-                      isNumber: "فقط اعداد ",
-                      minLength: "11 رقم ",
-                      maxLength: "11 رقم ",
-                    }}
                   />
                 </Col>
                 <Button type="submit" color="primary" className="login-btn">
@@ -141,36 +146,21 @@ class PatientsLogin extends Component {
                 <Form
                   className="mt-3"
                   model="PatientsLoginPassword"
-                  onSubmit={(values) => this.handleSubmitPassword(values)}
+                  onSubmit={this.handleSubmitPassword}
                 >
-                  <Label htmlFor="password">
-                    لطفا رمز ارسال شده را وارد کنید
-                  </Label>
+                  <Label for="password">لطفا رمز ارسال شده را وارد کنید</Label>
                   <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
-                    <Control
-                      type="number"
-                      model=".password"
+                    <Cleave
                       id="password"
                       name="password"
-                      placeholder="رمز عبور"
-                      className="form-control text-center mt-2 password"
-                      validators={{
-                        required,
-                        isNumber,
-                        minLength: minLength(4),
-                        maxLength: maxLength(5),
+                      value={this.state.password}
+                      options={{
+                        prefix: "",
+                        delimiter: " ",
+                        blocks: [1, 1, 1, 1],
                       }}
-                    />
-                    <Errors
-                      className="text-danger"
-                      model=".password"
-                      show="touched"
-                      messages={{
-                        required: "اجباری ",
-                        isNumber: "فقط اعداد ",
-                        minLength: "حداقل 4 رقم ",
-                        maxLength: "حداکثر 5 رقم ",
-                      }}
+                      onChange={this.onChangePassword}
+                      className="form-control text-center mt-2 phone-number"
                     />
                   </Col>
                   <Button type="submit" color="primary" className="login-btn">

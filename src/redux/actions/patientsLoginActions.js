@@ -10,6 +10,7 @@ export const addPatient = (patient) => ({
 
 //Post 1st Request
 export const postPatientsLogin = (phoneNumber) => (dispatch) => {
+  console.log(phoneNumber);
   const data = {
     phoneNumber: phoneNumber,
   };
