@@ -11,7 +11,6 @@ import {
   postPatientsLoginPassword,
   addPatient,
 } from "../redux/actions/patientsLoginActions";
-import { actions } from "react-redux-form";
 import { connect } from "react-redux";
 import DoctorsLogin from "./DoctorsLoginComponent";
 import Biography from "./BiographyComponent";
@@ -37,18 +36,6 @@ const mapDispatchToProps = (dispatch) => ({
   addPatient: (patient) => dispatch(addPatient(patient)),
   addDoctor: (doctor) => dispatch(addDoctor(doctor)),
   addProfile: (profile) => dispatch(addProfile(profile)),
-
-  resetPatientsLoginPasswordForm: () => {
-    dispatch(actions.reset("PatientsLoginPassword"));
-  },
-
-  resetDoctorsLoginForm: () => {
-    dispatch(actions.reset("DoctorsLogin"));
-  },
-
-  resetPatientsLoginForm: () => {
-    dispatch(actions.reset("PatientsLogin"));
-  },
 });
 
 class Main extends Component {
