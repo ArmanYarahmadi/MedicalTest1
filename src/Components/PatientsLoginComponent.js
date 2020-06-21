@@ -12,10 +12,23 @@ import {
 import Header from "./HeaderComponent";
 import Cleave from "cleave.js/react";
 
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !val || val.length <= len;
-const minLength = (len) => (val) => val && val.length >= len;
-const isNumber = (val) => !isNaN(Number(val));
+const checkRequired = (val) => {
+  if (!val.length) {
+    return <div>اجباری</div>;
+  } else return <></>;
+};
+
+const checkMinLength = (val, len) => {
+  if (!val || val.length < len) {
+    return <div>حداقل {len} رقم</div>;
+  } else return <></>;
+};
+
+const checkMaxLength = (val, len) => {
+  if (val && val.length > len) {
+    return <div>حداکثر {len} رقم</div>;
+  } else return <></>;
+};
 
 class PatientsLogin extends Component {
   constructor(props) {
@@ -128,6 +141,7 @@ class PatientsLogin extends Component {
                   <Cleave
                     id="phoneNumber"
                     name="phoneNumber"
+                    phone={true}
                     value={this.state.phoneNumber}
                     options={{
                       prefix: "09",
@@ -137,6 +151,11 @@ class PatientsLogin extends Component {
                     onChange={this.onChangePhone}
                     className="form-control text-center mt-2 phone-number"
                   />
+                  <div className="text-danger">
+                    {checkMaxLength(this.state.phoneNumberValue, 11)}
+                    {checkMinLength(this.state.phoneNumberValue, 11)}
+                    {checkRequired(this.state.phoneNumberValue)}
+                  </div>
                 </Col>
                 <Button type="submit" color="primary" className="login-btn">
                   تایید
@@ -162,6 +181,11 @@ class PatientsLogin extends Component {
                       onChange={this.onChangePassword}
                       className="form-control text-center mt-2 phone-number"
                     />
+                    <div className="text-danger">
+                      {checkMaxLength(this.state.passwordValue, 4)}
+                      {checkMinLength(this.state.passwordValue, 4)}
+                      {checkRequired(this.state.passwordValue)}
+                    </div>
                   </Col>
                   <Button type="submit" color="primary" className="login-btn">
                     ورود

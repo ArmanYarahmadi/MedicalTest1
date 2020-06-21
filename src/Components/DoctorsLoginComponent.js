@@ -12,10 +12,23 @@ import {
 import Cleave from "cleave.js/react";
 import Header from "./HeaderComponent";
 
-const required = (val) => val && val.length;
-const maxLength = (len) => (val) => !val || val.length <= len;
-const minLength = (len) => (val) => val && val.length >= len;
-const isNumber = (val) => !isNaN(Number(val));
+const checkRequired = (val) => {
+  if (!val.length) {
+    return <div>اجباری</div>;
+  } else return <></>;
+};
+
+const checkMinLength = (val, len) => {
+  if (!val || val.length < len) {
+    return <div>حداقل {len} رقم</div>;
+  } else return <></>;
+};
+
+const checkMaxLength = (val, len) => {
+  if (val && val.length > len) {
+    return <div>حداکثر {len} رقم</div>;
+  } else return <></>;
+};
 
 class DoctorsLogin extends Component {
   constructor(props) {
@@ -110,6 +123,11 @@ class DoctorsLogin extends Component {
                     onChange={this.onChangePhone}
                     className="form-control text-center mt-2 phone-number"
                   />
+                  <div className="text-danger">
+                    {checkMaxLength(this.state.phoneNumberValue, 11)}
+                    {checkMinLength(this.state.phoneNumberValue, 11)}
+                    {checkRequired(this.state.phoneNumberValue)}
+                  </div>
                 </Col>
                 <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
                   <Label for="password">لطفا رمز خود را وارد نمایید</Label>
@@ -120,6 +138,11 @@ class DoctorsLogin extends Component {
                     onChange={this.onChangePassword}
                     className="form-control text-center mt-2 phone-number"
                   />
+                  <div className="text-danger">
+                    {checkMaxLength(this.state.passwordValue, 256)}
+                    {checkMinLength(this.state.passwordValue, 8)}
+                    {checkRequired(this.state.passwordValue)}
+                  </div>
                 </Col>
                 <Button type="submit" color="primary" className="login-btn">
                   ورود
