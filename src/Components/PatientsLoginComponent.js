@@ -141,12 +141,14 @@ class PatientsLogin extends Component {
                   <Cleave
                     id="phoneNumber"
                     name="phoneNumber"
-                    phone={true}
+                    type="number"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     value={this.state.phoneNumber}
                     options={{
                       prefix: "09",
-                      delimiter: " ",
-                      blocks: [4, 3, 4],
+                      delimiter: "",
+                      blocks: [11],
                     }}
                     onChange={this.onChangePhone}
                     className="form-control text-center mt-2 phone-number"
@@ -172,11 +174,14 @@ class PatientsLogin extends Component {
                     <Cleave
                       id="password"
                       name="password"
+                      type="number"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                       value={this.state.password}
                       options={{
                         prefix: "",
-                        delimiter: " ",
-                        blocks: [1, 1, 1, 1],
+                        delimiter: "",
+                        blocks: [4],
                       }}
                       onChange={this.onChangePassword}
                       className="form-control text-center mt-2 phone-number"
