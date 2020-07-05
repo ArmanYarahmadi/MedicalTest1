@@ -17,6 +17,7 @@ import Biography from "./BiographyComponent";
 import PatientReserve from "./PatientReserveComponent";
 import PatientState from "./PatientStateComponent";
 import PatientsLogin from "./PatientsLoginComponent";
+import DoctorsChatList from "./DoctorsChatListComponent";
 
 const mapStateToProps = (state) => {
   return {
@@ -102,6 +103,7 @@ class Main extends Component {
             exact
             component={PatientStatePage}
           />
+          <Route path="/doctors/chatlist" exact component={DoctorsChatList} />
           <Redirect to="/home" />
         </Switch>
       </React.Fragment>

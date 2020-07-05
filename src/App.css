@@ -222,6 +222,46 @@ input[type="number"] {
 .blue-divider {
   background-color: #4dc9f4;
 }
+/*Doctor chatlist*/
+.list-group-co {
+  margin-bottom: 65px;
+  direction: rtl;
+  text-align: right;
+}
+
+.chat-list-user-image {
+  background-color: #094e66;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+.chat-list-item {
+  text-decoration: none;
+  color: black;
+}
+
+.chat-list-item:hover {
+  text-decoration: none;
+  color: #4dc9f4;
+}
+
+.chat-list-title {
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.chat-list-text {
+  font-size: 10px;
+}
+
+.unread-alert {
+  margin-top: 15px;
+  color: #094e66;
+  background-color: #4dc9f4;
+  padding: 1px;
+  border-radius: 40px;
+}
 
 /*Patient reserve*/
 
