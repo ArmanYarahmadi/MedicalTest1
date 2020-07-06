@@ -9,6 +9,7 @@ import {
   Collapse,
   Form,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 import Cleave from "cleave.js/react";
 import Header from "./HeaderComponent";
 
@@ -119,7 +120,6 @@ class DoctorsLogin extends Component {
   onChangePhone = (event) => {
     this.setState({ phoneNumber: event.target.value });
     this.setState({ phoneNumberValue: event.target.rawValue });
-    console.log(this.state.phoneNumber);
   };
 
   onChangePassword = (event) => {
@@ -142,6 +142,7 @@ class DoctorsLogin extends Component {
       })
       .catch((err) => {
         this.setState({
+          touched: { phoneNumber: false, password: false },
           show: true,
           alertColor: "danger",
           alertDescription: err.response.data.message,
@@ -150,6 +151,7 @@ class DoctorsLogin extends Component {
         console.log(err);
       });
     this.setState({
+      touched: { phoneNumber: false, password: false },
       phoneNumber: "",
       phoneNumberValue: "",
       password: "",
@@ -225,6 +227,9 @@ class DoctorsLogin extends Component {
               </Form>
             </CardBody>
           </Card>
+        </div>
+        <div>
+          <Link to="/doctors/chatlist">تست ورود موفق</Link>
         </div>
       </>
     );

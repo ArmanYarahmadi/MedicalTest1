@@ -16,6 +16,5 @@ export const postDoctorsLogin = (phoneNumber, password) => (dispatch) => {
     phoneNumber: phoneNumber,
     password: password,
   };
-
   return axios.post("/api/doctors/login", data);
 };

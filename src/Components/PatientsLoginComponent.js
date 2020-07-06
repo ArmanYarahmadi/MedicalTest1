@@ -128,7 +128,6 @@ class PatientsLogin extends Component {
   onChangePhone = (event) => {
     this.setState({ phoneNumber: event.target.value });
     this.setState({ phoneNumberValue: event.target.rawValue });
-    console.log(this.state.phoneNumber);
   };
 
   onChangePassword = (event) => {
@@ -150,6 +149,7 @@ class PatientsLogin extends Component {
       })
       .catch((err) => {
         this.setState({
+          touched: { phoneNumber: false, password: false },
           show: true,
           alertDescription:
             "شماره همراه وارد شده معتبر نمی باشد لطفا مجددا تلاش کنید",
@@ -157,6 +157,7 @@ class PatientsLogin extends Component {
         });
 
         this.setState({
+          touched: { phoneNumber: false, password: false },
           phoneNumber: "",
           phoneNumberValue: "",
         });
@@ -177,6 +178,7 @@ class PatientsLogin extends Component {
       })
       .catch((err) => {
         this.setState({
+          touched: { phoneNumber: false, password: false },
           show: true,
           alertDescription: " کد وارد شده معتبر نمی باشد لطفا مجددا تلاش کنید",
           alertColor: "danger",
@@ -184,6 +186,7 @@ class PatientsLogin extends Component {
 
         console.log(err);
         this.setState({
+          touched: { phoneNumber: false, password: false },
           password: "",
           passwordValue: "",
         });

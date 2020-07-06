@@ -185,6 +185,16 @@ input[type="number"] {
   margin-right: auto;
 }
 
+.login-btn:disabled {
+  background-color: darkgray;
+  border-radius: 15px;
+  margin-top: 10px;
+  border: none;
+  width: 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .phoneContainer {
   margin-left: auto;
   margin-right: auto;
@@ -230,7 +240,6 @@ input[type="number"] {
 }
 
 .chat-list-user-image {
-  background-color: #094e66;
   border-radius: 50px;
   height: 50px;
   width: 50px;
