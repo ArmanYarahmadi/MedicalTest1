@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import Cleave from "cleave.js/react";
 import Header from "./HeaderComponent";
+import { withRouter } from "react-router-dom";
 
 const checkisNumber = (val) => {
   if (isNaN(Number(val))) {
@@ -133,12 +134,8 @@ class DoctorsLogin extends Component {
       .then((res) => {
         this.props.addDoctor(res.data.doctor);
         this.props.addprofile(res.data.profile);
-        this.setState({
-          show: true,
-          alertColor: "success",
-          alertDescription: "خوش آمدید",
-        });
         localStorage.setItem("Token", res.data.Token);
+        this.props.history.push("./doctors/list");
       })
       .catch((err) => {
         this.setState({
@@ -236,4 +233,4 @@ class DoctorsLogin extends Component {
   }
 }
 
-export default DoctorsLogin;
+export default withRouter(DoctorsLogin);

@@ -56,9 +56,10 @@ class Main extends Component {
       );
     };
 
-    const PatientsLoginPage = () => {
+    const PatientsLoginPage = ({ match }) => {
       return (
         <PatientsLogin
+          dpctotId={parseInt(match.params.doctorId, 10)}
           addPatient={this.props.addPatient}
           resetPatientsLoginPasswordForm={
             this.props.resetPatientsLoginPasswordForm
@@ -86,8 +87,12 @@ class Main extends Component {
       <React.Fragment>
         <Switch>
           <Route path="/home" component={FormPage} />
-          <Route path="/doctorslogin" exact component={DoctorsLoginPage} />
-          <Route path="/patientslogin" exact component={PatientsLoginPage} />
+          <Route path="/doctors/login" exact component={DoctorsLoginPage} />
+          <Route
+            path="/patients/:doctorId/login"
+            exact
+            component={PatientsLoginPage}
+          />
           <Route
             path="/doctors/:doctorId/bio"
             exact

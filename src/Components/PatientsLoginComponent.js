@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 import Header from "./HeaderComponent";
 import Cleave from "cleave.js/react";
+import { withRouter } from "react-router-dom";
 
 const checkisNumber = (val) => {
   if (isNaN(Number(val))) {
@@ -175,6 +176,7 @@ class PatientsLogin extends Component {
       .then((res) => {
         localStorage.setItem("authToken", res.data.authToken);
         this.props.addPatient(res.data.patient);
+        this.props.history.push(`/doctors/${this.props.doctorId}/state`);
       })
       .catch((err) => {
         this.setState({
@@ -287,4 +289,4 @@ class PatientsLogin extends Component {
   }
 }
 
-export default PatientsLogin;
+export default withRouter(PatientsLogin);

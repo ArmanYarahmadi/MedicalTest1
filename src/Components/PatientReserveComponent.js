@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PatientHeader from "./PatientHeaderComponent";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 const PatientReserve = (props) => {
   const handleReserve = () => {
     if (localStorage.authToken) {
       return `/doctors/${props.doctorId}/reserve`;
     } else {
-      return "/patientslogin";
+      return `/patients/${props.doctorId}/login`;
     }
+  };
+
+  useEffect(() => {
+    window.onpopstate = handleBackOrForwardButton;
+  });
+
+  const handleBackOrForwardButton = (event) => {
+    event.preventDefault();
+    props.history.push(`/doctors/${props.doctorId}/bio`);
   };
 
   return (
@@ -24,4 +33,4 @@ const PatientReserve = (props) => {
   );
 };
 
-export default PatientReserve;
+export default withRouter(PatientReserve);
