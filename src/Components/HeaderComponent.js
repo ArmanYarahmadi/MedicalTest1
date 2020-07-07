@@ -154,7 +154,7 @@ export default function PersistentDrawerLeft(props) {
             </Link>,
             <Link
               className="menueparts"
-              to="/doctorslogin"
+              to="/doctors/login"
               onClick={() => setOpen(false)}
             >
               ورود پزشکان

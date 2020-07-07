@@ -8,10 +8,7 @@ const initialState = {};
 const Store = createStore(
   rootReducer,
   initialState,
-  compose(
-    applyMiddleware(thunk, logger),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  compose(applyMiddleware(thunk, logger))
 );
 
 export default Store;
