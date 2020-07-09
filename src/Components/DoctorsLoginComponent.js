@@ -8,9 +8,9 @@ import {
   Alert,
   Collapse,
   Form,
+  Input,
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import Cleave from "cleave.js/react";
 import Header from "./HeaderComponent";
 import { withRouter } from "react-router-dom";
 
@@ -44,9 +44,7 @@ class DoctorsLogin extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phoneNumber: "",
       phoneNumberValue: "",
-      password: "",
       passwordValue: "",
       show: false,
       alertDescription: "",
@@ -119,13 +117,14 @@ class DoctorsLogin extends Component {
   };
 
   onChangePhone = (event) => {
-    this.setState({ phoneNumber: event.target.value });
-    this.setState({ phoneNumberValue: event.target.rawValue });
+    const { value, maxLength } = event.target;
+    const message = value.slice(0, maxLength);
+
+    this.setState({ phoneNumberValue: message });
   };
 
   onChangePassword = (event) => {
-    this.setState({ password: event.target.value });
-    this.setState({ passwordValue: event.target.rawValue });
+    this.setState({ passwordValue: event.target.value });
   };
 
   handleSubmit = (event) => {
@@ -179,34 +178,31 @@ class DoctorsLogin extends Component {
                   <Label for="phoneNumber">
                     لطفا شماره همراه خود را وارد کنید
                   </Label>
-                  <Cleave
+                  <Input
                     id="phoneNumber"
                     name="phoneNumber"
                     type="number"
                     inputMode="numeric"
                     pattern="[0-9]*"
-                    value={this.state.phoneNumber}
+                    value={this.state.phoneNumberValue}
                     placeholder="09*********"
-                    options={{
-                      delimiter: "",
-                      blocks: [11],
-                    }}
                     onChange={this.onChangePhone}
                     onBlur={this.onTouchPhoneNumber}
                     className="form-control text-center mt-2 phone-number"
+                    maxLength="11"
                   />
                   {this.PhoneErrors()}
                 </Col>
                 <Col className="col-12 col-sm-8 passwordContainer" dir="ltr">
                   <Label for="password">لطفا رمز خود را وارد نمایید</Label>
-                  <Cleave
+                  <Input
                     id="password"
                     name="password"
                     type="number"
                     inputMode="numeric"
                     pattern="[0-9]*"
                     placeholder="رمز عبور"
-                    value={this.state.password}
+                    value={this.state.passwordValue}
                     onChange={this.onChangePassword}
                     onBlur={this.onTouchPassword}
                     className="form-control text-center mt-2 phone-number"
